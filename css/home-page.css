@@ -1,0 +1,69 @@
+body {
+  width: 95%;
+  margin: 0 auto;
+}
+
+header {
+  position: fixed;
+  width: 95%;
+  height: 50px;
+  z-index: 1;
+  border: solid 2px gray;
+  background-color: beige;
+}
+#underHeader {
+  position: absolute;
+  width: 95%;
+  top: 60px;
+  border: solid 2px green;
+}
+#underHeader div{
+  width: 99%;
+  border: solid 2px gray;
+margin: 5px auto;
+}
+#ad {
+
+  height: 300px;
+
+}
+#sortedTable {
+
+  height: 100px;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+li {
+  float: left;
+  padding: 8px 5px;
+}
+
+li a {
+  text-decoration: none;
+  text-align: center;
+  font-weight: lighter;
+  color: black;
+}
+
+#highScoreMovies > div{
+  display: inline-block;
+  width: 200px;
+  margin: 5px;
+  border: solid 1px red;
+}
+.moviePoster {
+  width: 100%;
+}
+
+footer{
+  width: 100%;
+  border: solid 2px gray;
+  margin: 5px auto;
+  margin-bottom: 0;
+}
