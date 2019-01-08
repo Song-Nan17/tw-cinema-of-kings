@@ -11,22 +11,24 @@ header {
   border: solid 2px gray;
   background-color: beige;
 }
+
 #underHeader {
   position: absolute;
   width: 95%;
   top: 60px;
   border: solid 2px green;
 }
+
 #underHeader div{
   width: 99%;
   border: solid 2px gray;
 margin: 5px auto;
 }
+
 #ad {
-
   height: 300px;
-
 }
+
 #sortedTable {
 
   height: 100px;
@@ -52,13 +54,16 @@ li a {
 }
 
 #highScoreMovies > div{
+  text-align: center;
   display: inline-block;
-  width: 200px;
+  width: 190px;
   margin: 5px;
   border: solid 1px red;
 }
+
 .moviePoster {
-  width: 100%;
+  width: 150px;
+  margin : 5px auto;
 }
 
 footer{
