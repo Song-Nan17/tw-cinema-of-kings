@@ -7,10 +7,11 @@
   <title>Home Page</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" media="screen" href="../css/home-page.css" />
-  <script src="main.js"></script>
+  <script src="../js/movies.js"></script>
+  <script src="../js/sortTable.js"></script>
 </head>
 
-<body>
+<body onload="onloadPageListener()">
   <header>
     <span id="logo">思沃影院</span>
     <input id="searchBox" type="search" placeholder="输入电影名称或id搜索电影" />
@@ -18,30 +19,10 @@
   </header>
   <div id="underHeader">
     <div id="ad">广告位</div>
-    <div id="sortedTable">
+    <div id="movieSort">
       <p>电影分类</p>
-      <ul>
-        <li>
-          <a href="">剧情</a>
-        </li>
-        <li>
-          <a href="">家庭</a>
-        </li>
-        <li>
-          <a href="">奇幻</a>
-        </li>
-        <li>
-          <a href="">爱情</a>
-        </li>
-        <li>
-          <a href="">音乐</a>
-        </li>
-        <li>
-          <a href="">动作</a>
-        </li>
-        <li>
-          <a href="">动画</a>
-        </li>
+      <ul id="sortTable">
+        <li>分类</li>
       </ul>
     </div>
     <div id="highScoreMovies">
