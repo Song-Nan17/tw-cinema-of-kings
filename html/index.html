@@ -8,7 +8,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" media="screen" href="../css/home-page.css" />
   <script src="../js/movies.js"></script>
-  <script src="../js/sortTable.js"></script>
+  <script src="../js/song/listener.js"></script>
+  <script src="../js/song/logic.js"></script>
+  <script src="../js/song/data.js"></script>
 </head>
 
 <body onload="onloadPageListener()">
@@ -21,52 +23,11 @@
     <div id="ad">广告位</div>
     <div id="movieSort">
       <p>电影分类</p>
-      <ul id="sortTable">
-        <li>分类</li>
+      <ul id="sortTable" onclick="toShowMoviesBySort(event)">
+        <li>全部</li>
       </ul>
     </div>
     <div id="highScoreMovies">
-      <p>高分电影推荐</p>
-      <div>
-        <img class="moviePoster" src="https://img3.doubanio.com/view/movie_poster_cover/spst/public/p2275298525.jpg">
-        <p class="movieName">心迷宫</p>
-        <p class="movieScore">评分：8.6</p>
-      </div>
-      <div>
-        <img class="moviePoster" src="https://img3.doubanio.com/view/movie_poster_cover/spst/public/p2275298525.jpg">
-        <p class="movieName">心迷宫</p>
-        <p class="movieScore">评分：8.6</p>
-      </div>
-      <div>
-        <img class="moviePoster" src="https://img3.doubanio.com/view/movie_poster_cover/spst/public/p2275298525.jpg">
-        <p class="movieName">心迷宫</p>
-        <p class="movieScore">评分：8.6</p>
-      </div>
-      <div>
-        <img class="moviePoster" src="https://img3.doubanio.com/view/movie_poster_cover/spst/public/p2275298525.jpg">
-        <p class="movieName">心迷宫</p>
-        <p class="movieScore">评分：8.6</p>
-      </div>
-      <div>
-        <img class="moviePoster" src="https://img3.doubanio.com/view/movie_poster_cover/spst/public/p2275298525.jpg">
-        <p class="movieName">心迷宫</p>
-        <p class="movieScore">评分：8.6</p>
-      </div>
-      <div>
-        <img class="moviePoster" src="https://img3.doubanio.com/view/movie_poster_cover/spst/public/p2275298525.jpg">
-        <p class="movieName">心迷宫</p>
-        <p class="movieScore">评分：8.6</p>
-      </div>
-      <div>
-        <img class="moviePoster" src="https://img3.doubanio.com/view/movie_poster_cover/spst/public/p2275298525.jpg">
-        <p class="movieName">心迷宫</p>
-        <p class="movieScore">评分：8.6</p>
-      </div>
-      <div>
-        <img class="moviePoster" src="https://img3.doubanio.com/view/movie_poster_cover/spst/public/p2275298525.jpg">
-        <p class="movieName">心迷宫</p>
-        <p class="movieScore">评分：8.6</p>
-      </div>
     </div>
     <footer>
       <p>CopyRight@2019</p>
