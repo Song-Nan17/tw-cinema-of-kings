@@ -6,7 +6,7 @@
   <title>movie details</title>
   <link rel="stylesheet" href="../css/movie-details.css">
   <link rel="stylesheet" href="../css/common.css">
-  <script src=""></script>
+  <script src="../js/jquery.js"></script>
   <script src="../js/movies.js"></script>
   <script src="../js/eventListener.js"></script>
   <script src="../js/storage.js"></script>
@@ -21,68 +21,26 @@
   </header>
   <div id="movie">
     <div id="introduction">
-      <h1 id="name">大鱼 — Big Fish</h1>
-      <img id="poster" src="https://img3.doubanio.com/view/movie_poster_cover/spst/public/p692813374.jpg" />
+      <h1 id="name"></h1>
+      <img id="poster" src="" />
       <div id="detail">
-        <p id="directors">导演：蒂姆·波顿</p>
-        <p id="casts">主演：伊万·麦克格雷格,阿尔伯特·芬尼,比利·克鲁德普</p>
-        <p id="genres">类别：剧情,家庭,奇幻</p>
-        <p id="year">上映时间：2003年</p>
-        <p id="rating">豆瓣评分：8.7</p>
+        <p id="directors"></p>
+        <p id="casts"></p>
+        <p id="genres"></p>
+        <p id="year"></p>
+        <p id="rating"></p>
       </div>
     </div>
-    <div id='comment'>
-      <p>豆瓣影评</p>
-      <ul>
-        <li>这是一条影评</li>
-        <li>这是一条影评</li>
-        <li>这是一条影评</li>
-        <li>这是一条影评</li>
-        <li>这是一条影评</li>
-      </ul>
+    <div id='comments'>
+      <p>放牛班的春天的短评</p>
+      <div>   
+        <p class='aboutAuthor'>
+          <span class='author'>Hamlet-Luang</span>  打了四分  2008-08-01 23:04:18 
+        </p>
+        <p class='comment'>一个孩子在启蒙时期，能够遇到一位好的老师，真的是一件非常幸运的事情。</p>
+      </div>
     </div>
-    <div id='recommend'>
-      <p>相似电影推荐</p>
-      <div>
-        <img class="moviePoster" src="https://img3.doubanio.com/view/movie_poster_cover/spst/public/p2275298525.jpg">
-        <p class="movieName">心迷宫</p>
-        <p class="movieScore">评分：8.6</p>
-      </div>
-      <div>
-        <img class="moviePoster" src="https://img3.doubanio.com/view/movie_poster_cover/spst/public/p2275298525.jpg">
-        <p class="movieName">心迷宫</p>
-        <p class="movieScore">评分：8.6</p>
-      </div>
-      <div>
-        <img class="moviePoster" src="https://img3.doubanio.com/view/movie_poster_cover/spst/public/p2275298525.jpg">
-        <p class="movieName">心迷宫</p>
-        <p class="movieScore">评分：8.6</p>
-      </div>
-      <div>
-        <img class="moviePoster" src="https://img3.doubanio.com/view/movie_poster_cover/spst/public/p2275298525.jpg">
-        <p class="movieName">心迷宫</p>
-        <p class="movieScore">评分：8.6</p>
-      </div>
-      <div>
-        <img class="moviePoster" src="https://img3.doubanio.com/view/movie_poster_cover/spst/public/p2275298525.jpg">
-        <p class="movieName">心迷宫</p>
-        <p class="movieScore">评分：8.6</p>
-      </div>
-      <div>
-        <img class="moviePoster" src="https://img3.doubanio.com/view/movie_poster_cover/spst/public/p2275298525.jpg">
-        <p class="movieName">心迷宫</p>
-        <p class="movieScore">评分：8.6</p>
-      </div>
-      <div>
-        <img class="moviePoster" src="https://img3.doubanio.com/view/movie_poster_cover/spst/public/p2275298525.jpg">
-        <p class="movieName">心迷宫</p>
-        <p class="movieScore">评分：8.6</p>
-      </div>
-      <div>
-        <img class="moviePoster" src="https://img3.doubanio.com/view/movie_poster_cover/spst/public/p2275298525.jpg">
-        <p class="movieName">心迷宫</p>
-        <p class="movieScore">评分：8.6</p>
-      </div>
+    <div id='recommend' onclick="toMovieDetailsPage(event)">
     </div>
   </div>
   <footer>

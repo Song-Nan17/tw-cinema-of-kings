@@ -94,26 +94,22 @@ function generateRandoms(count, randomsLength) {
     }
     return randoms;
 }
-function formatGenresToArray(data) {
-    return data.map(ele => {
-        ele.genres = ele.genres.split(',');
-        return ele;
-    })
+
+function getIdFromUrl() {
+    const url = document.location.toString();
+    return url.split('id=')[1];
 }
-function showMovieDetails(id) {
+
+function showMovieDetails() {
+    const id = getIdFromUrl();
     const movie = getSelectedMovie(id);
     generateDetails(movie);
+    generateComments(movie);
     generateSameMovies(movie);
 }
 function getSelectedMovie(id) {
     const movies = getMoviesFromStorage();
-    let selectedMovie = {};
-    movies.forEach(movie => {
-        if (movie.id === id) {
-            selectedMovie = movie;
-        }
-    })
-    return selectedMovie;
+    return movies.find(movie => movie.id === id);
 }
 
 function generateDetails(movie) {
@@ -137,17 +133,57 @@ function generateOther(movie) {
     document.getElementById('year').innerHTML = `上映时间：${movie.year}`;
     document.getElementById('rating').innerHTML = `豆瓣评分：${movie.rating}`;
 }
+
+function generateComments(movie) {
+    const url = `https://api.douban.com/v2/movie/subject/${movie.id}/comments?apikey=0b2bdeda43b5688921839c8ecb20399b&count=5&client=&udid=`;
+    request('get', url, (data) => {
+        showComments(data);
+        console.log(data);
+    })
+}
+
+function showComments(data) {
+    const commentsList = displayComments(data.comments);
+    document.getElementById('comments').innerHTML =
+     `<p>${data.subject.title}的短评</p>
+     ${commentsList.join('<hr>')}`;
+}
+
+function displayComments(comments) {
+    return comments.map(comment =>
+        `<div>   
+            <p class='aboutAuthor'>
+                <span class='author'>${comment.author.name}</span>  
+                <span class='star'>${generateStar(comment.rating.value).join('')}</span>
+                ${comment.created_at} 
+            </p>
+            <p class='comment'>${comment.content}</p>
+        </div>`)
+}
+function generateStar(value) {
+    let stars = ['☆','☆','☆','☆','☆'];
+    return stars.map((star,index,arr) => {
+        if(index <= value-1) {
+            return '★';
+        }
+        return star; 
+    })
+}
 function generateSameMovies(movie) {
     const sameMovies = getSameMovies(movie);
-    // showSameMovies(sameMovies);
+    showSameMovies(sameMovies);
 }
+
 function getSameMovies(selectedMovie) {
     const movies = getMoviesFromStorage();
-    const sameMovies = movies.filter(movie => movie.genres.some(genre => selectedMovie.genres.includes(genre)))
+    const sameMovies = movies.filter(movie => movie.genres.some(genre => selectedMovie.genres.includes(genre)
+        && movie.id != selectedMovie.id));
     return sameMovies;
 }
 
-function getUrlId() {
-    const url = document.location.toString();
-    return url.split('id=')[1];
+function showSameMovies(movies) {
+    const movieDivs = getDisplay(movies);
+    document.getElementById('recommend').innerHTML = `
+    <p>同类电影推荐</p>
+    ${movieDivs.join('\n')}`;
 }

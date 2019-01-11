@@ -16,7 +16,10 @@
   float: left;
   margin: 0 100px;
 }
-#comment {
+#comments {
   border: 1px solid black;
+}
+.star {
+  color: orange;
 }
 
