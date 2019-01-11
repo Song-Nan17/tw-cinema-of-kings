@@ -17,12 +17,12 @@ function onloadPageListener() {
     })
 
     storageInit(data);
-    showSortTable();
+    showMovieSortTable();
     showHighScoreMovies();
 }
 
 function toShowMoviesBySort(event) {
-    const sortName = toGetSortName(event);
+    const sortName = getSortName(event);
     showMoviesBySort(sortName);
 }
 function onloadShowMovie() {

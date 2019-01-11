@@ -5,7 +5,7 @@ function formatGenresToArray(data) {
     })
 }
 
-function showSortTable() {
+function showMovieSortTable() {
     const sortArr = getSortArr();
     const liTags = sortArr.map(sortName => `<li>${sortName}</li>`);
     document.getElementById('movieSortTable').innerHTML = liTags.join('\n');
@@ -13,11 +13,11 @@ function showSortTable() {
 
 function getSortArr() {
     const movies = getMoviesFromStorage();
-    const movieSort = movies.reduce((acc, current) => acc = acc.concat(current.genres), ['全部']);
-    return movieSort.filter((ele, index, arr) => arr.indexOf(ele) === index);
+    const movieSorts = movies.reduce((sortArr, movie) => sortArr = sortArr.concat(movie.genres), ['全部']);
+    return movieSorts.filter((sort, index, sortArr) => sortArr.indexOf(sort) === index);
 }
 
-function toGetSortName(event) {
+function getSortName(event) {
     if (event.target.tagName.toLowerCase() === 'li') {
         changeClickedSortColor(event);
         return event.target.innerHTML;
