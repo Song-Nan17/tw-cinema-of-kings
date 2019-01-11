@@ -26,6 +26,12 @@ function toShowMoviesBySort(event) {
     showMoviesBySort(sortName);
 }
 function onloadShowMovie() {
+    const id = getUrlId();
     storageInit(data);
-    showMovieDetails();
+    showMovieDetails(id);
+}
+
+function toMovieDetailsPage(event) {
+    const movieId = getMovieId(event);
+    isToMovieDetailsPage(movieId);
 }

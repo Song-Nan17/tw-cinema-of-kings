@@ -49,10 +49,24 @@ function getDisplayMovies(sortName) {
 function getDisplay(diaplayMovies) {
     return diaplayMovies.map(movie =>
         `<div>
-      <img class="moviePoster" src=${movie.image}>
+      <img class="moviePoster" src=${movie.image} />
       <p class="movieName">${movie.title}</p>
       <p class="movieScore">评分：${movie.rating}</p>
       </div>`);
+}
+
+function getMovieId(event) {
+    if (event.target.tagName.toLowerCase() === 'img') {
+        const movies = getMoviesFromStorage();
+        const movie = movies.find(movie => movie.image === event.target.src);
+        return movie.id;
+    }
+}
+
+function isToMovieDetailsPage(movieId) {
+    if (movieId) {
+        window.location = `movie-details.html?id=${movieId}`;
+    }
 }
 
 function showHighScoreMovies() {
@@ -86,13 +100,12 @@ function formatGenresToArray(data) {
         return ele;
     })
 }
-function showMovieDetails() {
-    const movie = getSelectedMovie();
+function showMovieDetails(id) {
+    const movie = getSelectedMovie(id);
     generateDetails(movie);
     generateSameMovies(movie);
 }
-function getSelectedMovie() {
-    const id = "1291546";
+function getSelectedMovie(id) {
     const movies = getMoviesFromStorage();
     let selectedMovie = {};
     movies.forEach(movie => {
@@ -132,4 +145,9 @@ function getSameMovies(selectedMovie) {
     const movies = getMoviesFromStorage();
     const sameMovies = movies.filter(movie => movie.genres.some(genre => selectedMovie.genres.includes(genre)))
     return sameMovies;
+}
+
+function getUrlId() {
+    const url = document.location.toString();
+    return url.split('id=')[1];
 }
