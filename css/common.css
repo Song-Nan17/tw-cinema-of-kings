@@ -1,0 +1,43 @@
+* {
+    margin: 0;
+}
+body {
+    width: 95%;
+    margin: 0 auto;
+  }
+  header {
+    position: fixed;
+    width: 95%;
+    height: 50px;
+    top: 0;
+    z-index: 1;
+    border: solid 2px gray;
+    background-color: beige;
+  }
+  #movie {
+    margin-top: 60px;
+    border: solid 2px green;
+  } 
+  #movie > div{
+    width: 99%;
+    border: solid 2px gray;
+    margin: 5px auto;
+  }
+  footer{
+    width: 100%;
+    border: solid 2px gray;
+    margin: 5px auto;
+    margin-bottom: 0;
+  }
+  .moviePoster {
+    width: 150px;
+    height: 230px;
+    margin : 5px auto;
+  }
+  #recommend > div{
+    text-align: center;
+    display: inline-block;
+    width: 190px;
+    margin: 5px;
+    border: solid 1px red;
+  }

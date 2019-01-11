@@ -8,7 +8,7 @@ function formatMovies(data) {
 function showSortTable() {
   const sortArr = getSortArr();
   const liTags = sortArr.map(sortName => `<li>${sortName}</li>`);
-  document.getElementById('sortTable').innerHTML = liTags.join('\n');
+  document.getElementById('movieSortTable').innerHTML = liTags.join('\n');
 }
 
 function getSortArr() {
@@ -35,7 +35,7 @@ function changeClickedSortColor(event) {
 function showMoviesBySort(sortName) {
   const diaplayMovies = getDisplayMovies(sortName);
   const movieDivs = getDisplay(diaplayMovies);
-  document.getElementById('highScoreMovies').innerHTML = movieDivs.join('\n');
+  document.getElementById('recommend').innerHTML = movieDivs.join('\n');
 }
 
 function getDisplayMovies(sortName) {
@@ -60,7 +60,7 @@ function showHighScoreMovies() {
   const randoms = generateRandoms(highScoreMovies.length, 12);
   const randomMovies = randoms.map(random => highScoreMovies[random]);
   const movieDivs = getDisplay(randomMovies);
-  document.getElementById('highScoreMovies').innerHTML = `
+  document.getElementById('recommend').innerHTML = `
   <p>高分电影推荐</p>
   ${movieDivs.join('\n')}`;
 }

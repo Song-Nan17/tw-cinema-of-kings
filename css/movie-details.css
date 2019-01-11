@@ -1,31 +1,5 @@
-* {
-  margin: 0;
-}
-body {
-  width: 95%;
-  margin: 0 auto;
-}
-li {
-  list-style: none;
-}
-header {
-  position: fixed;
-  width: 95%;
-  height: 50px;
-  top: 0;
-  z-index: 1;
-  border: solid 2px gray;
-  background-color: beige;
-}
-#movie {
-  margin-top: 60px;
-  border: solid 2px green;
-} 
-#movie > div{
-  width: 99%;
-  border: solid 2px gray;
-  margin: 5px auto;
-}
+
+
 #name {
   margin: 0 0 20px 100px;
 }
@@ -45,19 +19,4 @@ header {
 #comment {
   border: 1px solid black;
 }
-#recommend > div{
-  text-align: center;
-  display: inline-block;
-  width: 190px;
-  margin: 5px;
-  border: solid 1px red;
-}
-.moviePoster {
-  width: 150px;
-  margin : 5px auto;
-}
-footer{
-  width: 100%;
-  border: solid 2px gray;
-  margin: 5px auto;
-}
+

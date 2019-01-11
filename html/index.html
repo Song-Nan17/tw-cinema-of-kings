@@ -7,6 +7,7 @@
   <title>Home Page</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" media="screen" href="../css/home-page.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="../css/common.css" />
   <script src="../js/movies.js"></script>
   <script src="../js/song/listener.js"></script>
   <script src="../js/song/logic.js"></script>
@@ -19,19 +20,20 @@
     <input id="searchBox" type="search" placeholder="输入电影名称或id搜索电影" />
     <button type="submit">搜索</button>
   </header>
-  <div id="underHeader">
+  <div id="movie">
     <div id="ad">广告位</div>
     <div id="movieSort">
       <p>电影分类</p>
-      <ul id="sortTable" onclick="toShowMoviesBySort(event)">
+      <ul id="movieSortTable" onclick="toShowMoviesBySort(event)">
         <li>全部</li>
       </ul>
     </div>
-    <div id="highScoreMovies">
+    <div id="recommend">
     </div>
-
   </div>
-
+  <footer>
+    <p>CopyRight@2019</p>
+  </footer>
 </body>
 
 </html>

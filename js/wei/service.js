@@ -18,7 +18,6 @@ function getSelectedMovie() {
       selectedMovie = movie;
     }
   })
-  console.log(selectedMovie);
   return selectedMovie;
 }
 
