@@ -16,9 +16,15 @@ function onloadPageListener() {
         console.log(data)
     })
 
+    const adLeft = "https://img3.doubanio.com/view/movie_poster_cover/spst/public/p692813374.jpg";
+    const adMiddle = "https://img3.doubanio.com/view/movie_poster_cover/spst/public/p1910813120.jpg";
+    const adRight = "https://img3.doubanio.com/view/movie_poster_cover/spst/public/p1910825503.jpg";
+    let images = [adLeft, adMiddle, adRight];
+
     storageInit(data);
     showMovieSortTable();
     showHighScoreMovies();
+    displayAd(images)
 }
 
 function toShowMoviesBySort(event) {

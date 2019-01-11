@@ -5,6 +5,26 @@ function formatGenresToArray(data) {
     })
 }
 
+function displayAd(images) {
+
+    document.getElementById('adLeft').src = images[0];
+    document.getElementById('adMiddle').src = images[1];
+    document.getElementById('adRight').src = images[2];
+    playImages(images);
+
+}
+
+function playImages(images) {
+    setTimeout(() => {
+        let arr=[];
+        arr[0] = images[1];
+        arr[1] = images[2];
+        arr[2] = images[0];
+        images = arr;
+        displayAd(images);
+    }, 3000);
+}
+
 function showMovieSortTable() {
     const sortArr = getSortArr();
     const liTags = sortArr.map(sortName => `<li>${sortName}</li>`);
