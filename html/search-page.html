@@ -18,8 +18,8 @@
 
 <body onload="onloadShowResult()">
   <header>
-    <span id="logo">思沃影院</span>
-    <input id="searchBox" type="search" placeholder="输入电影名称或id搜索电影" />
+    <span id="logo" onclick="toHomePage()">思沃影院</span>
+    <input id="searchBox" type="search" placeholder="输入电影名称或id搜索电影" onkeypress="if(event.keyCode==13) {toSearchPage()}" />
     <button type="submit">搜索</button>
   </header>
   <div id="movie">

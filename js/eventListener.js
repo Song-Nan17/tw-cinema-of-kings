@@ -48,6 +48,13 @@ function onloadShowMovie() {
 }
 
 function toMovieDetailsPage(event) {
-    const movieId = getMovieId(event);
-    isToMovieDetailsPage(movieId);
+    isToMovieDetailsPage(getMovieId(event));
+}
+
+function toSearchPage() {
+    isToSearchPage(getSearchContent());
+}
+
+function toHomePage() {
+    window.location = `index.html`;
 }
