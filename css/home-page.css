@@ -13,27 +13,17 @@
   width: 280px;
   height: 180px;
 }
-#adLeft{
-  /* float: left; */
-  /* transform:skew(5deg,-20deg); */
-  /* margin: auto 0; */
-}
-#adRight {
-  /* float: right; */
-  /* transform:skew(5deg,20deg); */
-}
 #adMiddle {
   width: 600px;
   height: 280px;
   z-index: 1;
 }
-
-
 #movieSortTable {
   list-style: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
+  background: rgba(144, 167, 185, 0.2);
 }
 
 #movieSortTable li {
