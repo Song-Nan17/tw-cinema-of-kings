@@ -94,7 +94,7 @@ function isToMovieDetailsPage(movieId) {
 
 function showHighScoreMovies() {
     const highScoreMovies = getMoviesScoreAbove(8.8)
-    const randoms = generateRandoms(highScoreMovies.length, 12);
+    const randoms = generateRandoms(highScoreMovies.length, 10);
     const randomMovies = randoms.map(random => highScoreMovies[random]);
     const movieDivs = getDisplay(randomMovies);
     document.getElementById('recommend').innerHTML = `
