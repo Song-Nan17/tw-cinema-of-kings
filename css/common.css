@@ -39,7 +39,12 @@ header {
 #movie > div{
   width: 99%;
   /* border: solid 2px gray; */
-  margin: 5px auto;
+  margin: 50px auto;
+}
+#movie > div >p {
+  font-size: larger;
+  color: green;
+  margin: 20px 0;
 }
 footer{
   width: 100%;

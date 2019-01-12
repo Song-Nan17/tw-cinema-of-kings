@@ -157,7 +157,7 @@ function generateRandoms(count, randomsLength) {
     const randoms = [];
     while (randoms.length < randomsLength) {
         const random = parseInt(Math.random() * count);
-        if (!randoms.includes(random)) {
+        if (!randoms.includes(random)) { 
             randoms.push(random);
         }
     }
@@ -201,6 +201,7 @@ function generateOther(movie) {
     document.getElementById('genres').innerHTML = `类别：${movie.genres.join(',')}`;
     document.getElementById('year').innerHTML = `上映时间：${movie.year}`;
     document.getElementById('rating').innerHTML = `豆瓣评分：${movie.rating}`;
+    document.getElementById('more').href = movie.alt;
 }
 
 function generateComments(movie) {
@@ -251,8 +252,10 @@ function getSameMovies(selectedMovie) {
 }
 
 function showSameMovies(movies) {
-    const movieDivs = getDisplay(movies);
+    const randoms = generateRandoms(movies.length, 10);
+    const randomMovies = randoms.map(random => movies[random]);
+    const movieDivs = getDisplay(randomMovies);
     document.getElementById('recommend').innerHTML = `
-    <p>同类电影推荐</p>
+    <p class='title'>同类电影推荐</p>
     ${movieDivs.join('\n')}`;
 }
