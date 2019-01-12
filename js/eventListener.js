@@ -26,8 +26,20 @@ function onloadPageListener() {
 function toShowMoviesBySort(event) {
     showMoviesBySort(getSortName(event),10);
 }
+
 function showMoreMovies() {
     showMoviesBySort(getSortNameInStorage());
+}
+
+function onloadShowResult() {
+    storageInit(data);
+    showMovieSortTable();
+    showSearchResult();
+}
+
+function toMovieSearchPage(event) {
+    const movieIdOrName =getMovieIdOrName(event);
+    isToMovieSearchPage(movieIdOrName);
 }
 
 function onloadShowMovie() {

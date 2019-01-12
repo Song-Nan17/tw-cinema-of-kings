@@ -97,11 +97,41 @@ function getMovieId(event) {
     }
 }
 
+function isToSearchPage(movieIdOrName) {
+    if(movieIdOrName) {
+        window.location = `search-page.html?id=${movieIdOrName}`;
+    }
+}
+
 function isToMovieDetailsPage(movieId) {
     if (movieId) {
         window.location = `movie-details.html?id=${movieId}`;
     }
 }
+
+
+function showSearchResult(nameOrId) {
+    if (Number(nameOrId) === nameOrId) {
+      showIdSearch(nameOrId);
+    }
+    showNameSearch(nameOrId);
+  }
+  
+  function showIdSearchResult(movieId) {
+    const movies = getMovies();
+    let idResult = movies.filter(movie => movie.id === movieId);
+    const showResult = getDisplay(idResult);
+    document.getElementById('searchResults').innerHTML = `
+    ${showResult.join('\n')}`;
+  }
+  
+  function showNameSearchResult(movieName) {
+    const movies = getMovies();
+    let nameResults = movies.filter(movie => movie.name.includes(movieName));
+    const showResult = getDisplay(nameResults);
+    document.getElementById('searchResults').innerHTML = `
+      ${showResult.join('\n')}`;
+  }
 
 function showHighScoreMovies() {
     const highScoreMovies = getMoviesScoreAbove(8.8)
