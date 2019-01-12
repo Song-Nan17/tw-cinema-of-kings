@@ -24,9 +24,12 @@ function onloadPageListener() {
 }
 
 function toShowMoviesBySort(event) {
-    const sortName = getSortName(event);
-    showMoviesBySort(sortName);
+    showMoviesBySort(getSortName(event),10);
 }
+function showMoreMovies() {
+    showMoviesBySort(getSortNameInStorage());
+}
+
 function onloadShowMovie() {
     storageInit(data);
     showMovieDetails();

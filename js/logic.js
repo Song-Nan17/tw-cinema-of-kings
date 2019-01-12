@@ -43,8 +43,10 @@ function getSortArr() {
 function getSortName(event) {
     if (event.target.tagName.toLowerCase() === 'li') {
         changeClickedSortColor(event);
+        storageSortName(event.target.innerHTML);
         return event.target.innerHTML;
     }
+    return
 }
 
 function changeClickedSortColor(event) {
@@ -55,10 +57,19 @@ function changeClickedSortColor(event) {
     event.target.style.color = 'red';
 }
 
-function showMoviesBySort(sortName) {
-    const diaplayMovies = getDisplayMovies(sortName);
-    const movieDivs = getDisplay(diaplayMovies);
-    document.getElementById('recommend').innerHTML = movieDivs.join('\n');
+function showMoviesBySort(sortName, movieNumber) {
+    if(!sortName) {
+        return
+    }
+    const displayMovies = getDisplayMovies(sortName);
+    const movieDivs = getDisplay(displayMovies);
+    if (!movieNumber || movieDivs.length <= movieNumber) {
+        document.getElementById('recommend').innerHTML = movieDivs.join('\n');
+    }
+    else {
+            document.getElementById('recommend').innerHTML = movieDivs.slice(0, 10).join('\n')
+                +`<p id="moreMovies" onclick = "showMoreMovies()">更多>></p>`;
+    }
 }
 
 function getDisplayMovies(sortName) {
@@ -69,8 +80,8 @@ function getDisplayMovies(sortName) {
     return movies;
 }
 
-function getDisplay(diaplayMovies) {
-    return diaplayMovies.map(movie =>
+function getDisplay(displayMovies) {
+    return displayMovies.map(movie =>
         `<div>
       <img class="moviePoster" src=${movie.image} />
       <p class="movieName">${movie.title}</p>

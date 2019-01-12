@@ -7,3 +7,10 @@ function getMoviesFromStorage() {
     const movies = localStorage.getItem('movies');
     return JSON.parse(movies);
 }
+function storageSortName(sortName) {
+    localStorage.setItem('sortName', sortName);
+}
+
+function getSortNameInStorage() {
+    return localStorage.getItem('sortName');
+}
