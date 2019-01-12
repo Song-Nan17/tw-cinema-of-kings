@@ -96,6 +96,9 @@ function getMovieId(event) {
         return movie.id;
     }
 }
+
+
+
 function isToMovieDetailsPage(movieId) {
     if (movieId) {
         window.location = `movie-details.html?id=${movieId}`;
@@ -106,35 +109,39 @@ function getSearchContent() {
     return document.getElementById('searchBox').value;
 }
 
-function isToSearchPage(searchContent) {
+function isToMovieSearchPage(searchContent) {
     if (!searchContent) {
         return
     }
     window.location = `search-page.html?search=${searchContent}`;
 }
 
+function getSearchContentFromUrl() {
+    const url = document.location.toString();
+    return url.split('search=')[1];
+}
 
-
-function showSearchResult(nameOrId) {
-    if (Number(nameOrId) === nameOrId) {
-        showIdSearch(nameOrId);
+function showSearchResult() {
+    const searchContent = getSearchContentFromUrl();
+    if (Number(searchContent) === searchContent) {
+        showIdSearchResult(searchContent);
     }
-    showNameSearch(nameOrId);
+    showNameSearchResult(searchContent);
 }
 
 function showIdSearchResult(movieId) {
-    const movies = getMovies();
-    let idResult = movies.filter(movie => movie.id === movieId);
+    const movies = getMoviesFromStorage();
+    let idResult = movies.filter(movie => movie.id == movieId);
     const showResult = getDisplay(idResult);
-    document.getElementById('searchResults').innerHTML = `
+    document.getElementById('recommend').innerHTML = `
     ${showResult.join('\n')}`;
 }
 
 function showNameSearchResult(movieName) {
-    const movies = getMovies();
+    const movies = getMoviesFromStorage();
     let nameResults = movies.filter(movie => movie.name.includes(movieName));
     const showResult = getDisplay(nameResults);
-    document.getElementById('searchResults').innerHTML = `
+    document.getElementById('recommend').innerHTML = `
       ${showResult.join('\n')}`;
 }
 
