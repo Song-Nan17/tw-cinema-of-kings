@@ -1,0 +1,19 @@
+#movieSortTable {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: rgba(144, 167, 185, 0.2);
+}
+
+#movieSortTable li {
+  float: left;
+  padding: 8px 5px;
+  color: black;
+}
+
+#movieSortTable li a {
+  text-decoration: none;
+  text-align: center;
+  font-weight: lighter;
+}
