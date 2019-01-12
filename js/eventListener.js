@@ -15,8 +15,6 @@ function onloadPageListener() {
     request('get', url, (data) => {
         console.log(data)
     })
-
-
     storageInit(data);
     showMovieSortTable();
     showHighScoreMovies();
@@ -37,10 +35,6 @@ function onloadShowResult() {
     showSearchResult();
 }
 
-function toMovieSearchPage(event) {
-    const movieIdOrName =getMovieIdOrName(event);
-    isToMovieSearchPage(movieIdOrName);
-}
 
 function onloadShowMovie() {
     storageInit(data);
@@ -51,8 +45,8 @@ function toMovieDetailsPage(event) {
     isToMovieDetailsPage(getMovieId(event));
 }
 
-function toSearchPage() {
-    isToSearchPage(getSearchContent());
+function toSearchPage(event) {
+    isToMovieSearchPage(getSearchContent(event));
 }
 
 function toHomePage() {

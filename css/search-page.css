@@ -10,6 +10,7 @@
   float: left;
   padding: 8px 5px;
   color: black;
+  cursor: pointer;
 }
 
 #movieSortTable li a {
