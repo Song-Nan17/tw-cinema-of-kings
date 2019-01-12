@@ -1,22 +1,15 @@
-#ad {
-  height: 300px;
-  align-items: center; 
-  display: flex;
+#slideShow {
+  height: 400px;
 }
-#ad img{
-  display: inline-block;
-  border: solid 1px green;
+#slideShowImg {
+  width: 100%;
+  height: 100%;
   margin: auto;
-  line-height: 300px;
 }
-#adLeft, #adRight {
-  width: 280px;
-  height: 180px;
-}
-#adMiddle {
-  width: 600px;
-  height: 280px;
-  z-index: 1;
+#slideShowButton {
+  color: rgb(92, 141, 179);
+  margin-top: -28px;
+  text-align: center;
 }
 #movieSortTable {
   list-style: none;

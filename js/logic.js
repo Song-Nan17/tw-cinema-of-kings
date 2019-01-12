@@ -5,23 +5,32 @@ function formatGenresToArray(data) {
     })
 }
 
-function displayAd(images) {
-
-    document.getElementById('adLeft').src = images[0];
-    document.getElementById('adMiddle').src = images[1];
-    document.getElementById('adRight').src = images[2];
-    playImages(images);
+function slideShow() {
+    let images = ["http://ww1.sinaimg.cn/large/a85d55ddly1fz3ttvmat8j20g4096gn8.jpg",
+        "http://ww1.sinaimg.cn/large/a85d55ddly1fz3tydey73j20rs0goh3e.jpg",
+        "http://ww1.sinaimg.cn/large/a85d55ddly1fz3u2l7hl0j21180n7q9z.jpg"];
+    let i = 0;
+    displayImage(images, i);
+}
+function displayImage(images, i) {
+    document.getElementById('slideShowImg').src = images[i];
+    let pageNumber = ['○', '○', '○'];
+    pageNumber[i] = '●';
+    document.getElementById('slideShowButton').innerHTML = pageNumber.join('');
+    playImages(images, i);
 
 }
 
-function playImages(images) {
+function playImages(images, i) {
     setTimeout(() => {
-        let arr=[];
-        arr[0] = images[1];
-        arr[1] = images[2];
-        arr[2] = images[0];
-        images = arr;
-        displayAd(images);
+        // let arr=[];
+        // arr[0] = images[1];
+        // arr[1] = images[2];
+        // arr[2] = images[0];
+        // images = arr;
+        // displayAd(images);
+        i++;
+        displayImage(images, i % 3);
     }, 3000);
 }
 
@@ -165,7 +174,7 @@ function generateComments(movie) {
 function showComments(data) {
     const commentsList = displayComments(data.comments);
     document.getElementById('comments').innerHTML =
-     `<p>${data.subject.title}的短评</p>
+        `<p>${data.subject.title}的短评</p>
      ${commentsList.join('<hr>')}`;
 }
 
@@ -181,12 +190,12 @@ function displayComments(comments) {
         </div>`)
 }
 function generateStar(value) {
-    let stars = ['☆','☆','☆','☆','☆'];
-    return stars.map((star,index,arr) => {
-        if(index <= value-1) {
+    let stars = ['☆', '☆', '☆', '☆', '☆'];
+    return stars.map((star, index, arr) => {
+        if (index <= value - 1) {
             return '★';
         }
-        return star; 
+        return star;
     })
 }
 function generateSameMovies(movie) {
