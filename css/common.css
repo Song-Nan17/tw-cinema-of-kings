@@ -19,6 +19,7 @@ header {
   font-size: 36px;
   font-weight: bold;
   color: rgb(92, 141, 179);
+  cursor: pointer;
 }
 #searchBox {
   margin: 0 10px;
@@ -41,7 +42,7 @@ header {
   /* border: solid 2px gray; */
   margin: 50px auto;
 }
-#movie > div >p {
+#movie > div > p {
   font-size: larger;
   color: green;
   margin: 20px 0;

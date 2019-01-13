@@ -6,7 +6,7 @@
   height: 100%;
   margin: auto;
 }
-#slideShowButton {
+#slideShow #slideShowButton {
   color: rgb(92, 141, 179);
   margin-top: -28px;
   text-align: center;
@@ -34,5 +34,6 @@
 #moreMovies {
   text-align: right;
   margin-top: 10px;
+  cursor: pointer;
   padding-right: 75px;
 }
