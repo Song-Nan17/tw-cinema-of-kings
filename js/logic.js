@@ -123,10 +123,11 @@ function getSearchContentFromUrl() {
 
 function showSearchResult() {
     const searchContent = getSearchContentFromUrl();
-    if (Number(searchContent) === searchContent) {
+    if (Number(searchContent) == searchContent) {
         showIdSearchResult(searchContent);
+    } else {
+        showNameSearchResult(searchContent);
     }
-    showNameSearchResult(searchContent);
 }
 
 function showIdSearchResult(movieId) {
@@ -164,7 +165,7 @@ function generateRandoms(count, randomsLength) {
     const randoms = [];
     while (randoms.length < randomsLength) {
         const random = parseInt(Math.random() * count);
-        if (!randoms.includes(random)) { 
+        if (!randoms.includes(random)) {
             randoms.push(random);
         }
     }
@@ -215,7 +216,6 @@ function generateComments(movie) {
     const url = `https://api.douban.com/v2/movie/subject/${movie.id}/comments?apikey=0b2bdeda43b5688921839c8ecb20399b&count=5&client=&udid=`;
     request('get', url, (data) => {
         showComments(data);
-        console.log(data);
     })
 }
 
@@ -259,10 +259,15 @@ function getSameMovies(selectedMovie) {
 }
 
 function showSameMovies(movies) {
-    const randoms = generateRandoms(movies.length, 10);
-    const randomMovies = randoms.map(random => movies[random]);
-    const movieDivs = getDisplay(randomMovies);
+    let movieDivs = [];
+    if (movies.length <= 10) {
+        movieDivs = getDisplay(movies);
+    } else {
+        const randoms = generateRandoms(movies.length, 10);
+        const randomMovies = randoms.map(random => movies[random]);
+        movieDivs = getDisplay(randomMovies);
+    }
     document.getElementById('recommend').innerHTML = `
-    <p class='title'>同类电影推荐</p>
+    <p>同类电影推荐</p>
     ${movieDivs.join('\n')}`;
 }

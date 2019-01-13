@@ -8,21 +8,15 @@
 #poster {
   float: left;
   width: 150px; 
-  margin-left: 0;
 }
 #detail {
   float: left;
   margin: 0 150px;
-  font-size: 14px;
+  font-size: 16px;
 }
 #comments {
   font-size: Helvetica,Arial,sans-serif;
 }
-/* #comments > p {
-  color: green;
-  font-size: larger;
-  margin: 20px 0;
-} */
 #comments div p {
   margin: 8px 0;
   font-size: smaller;
