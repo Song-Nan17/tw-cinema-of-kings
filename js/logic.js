@@ -16,7 +16,7 @@ function displayImage(images, i) {
     document.getElementById('slideShowImg').src = images[i];
     let pageNumber = ['○', '○', '○'];
     pageNumber[i] = '●';
-    document.getElementById('slideShowButton').innerHTML = pageNumber.join('');
+    document.getElementById('imgNumber').innerHTML = pageNumber.join('');
     playImages(images, i);
 
 }
@@ -54,7 +54,7 @@ function changeClickedSortColor(event) {
     for (i = 0; i < liTags.length; i++) {
         liTags[i].style.color = 'black';
     }
-    event.target.style.color = 'red';
+    event.target.style.color = '#27a';
 }
 
 function showMoviesBySort(sortName, movieNumber) {
@@ -97,8 +97,6 @@ function getMovieId(event) {
     }
 }
 
-
-
 function isToMovieDetailsPage(movieId) {
     if (movieId) {
         window.location = `movie-details.html?id=${movieId}`;
@@ -113,17 +111,19 @@ function isToMovieSearchPage(searchContent) {
     if (!searchContent) {
         return
     }
-    window.location = `search-page.html?search=${searchContent}`;
+    let searchUrl = 'search-page.html?search=' + encodeURI(searchContent);
+    window.location.href = searchUrl;
 }
 
 function getSearchContentFromUrl() {
-    const url = document.location.toString();
-    return url.split('search=')[1];
+    const url = window.location.href;
+    let searchContent = url.split('search=')[1];
+    return decodeURI(searchContent);
 }
 
 function showSearchResult() {
     const searchContent = getSearchContentFromUrl();
-    if (Number(searchContent) == searchContent) {
+    if (Number(searchContent)) {
         showIdSearchResult(searchContent);
     } else {
         showNameSearchResult(searchContent);
@@ -135,12 +135,13 @@ function showIdSearchResult(movieId) {
     let idResult = movies.filter(movie => movie.id == movieId);
     const showResult = getDisplay(idResult);
     document.getElementById('recommend').innerHTML = `
+    <p>搜索结果：</P>
     ${showResult.join('\n')}`;
 }
 
 function showNameSearchResult(movieName) {
     const movies = getMoviesFromStorage();
-    let nameResults = movies.filter(movie => movie.name.includes(movieName));
+    let nameResults = movies.filter(movie => movie.title.includes(movieName));
     const showResult = getDisplay(nameResults);
     document.getElementById('recommend').innerHTML = `
       ${showResult.join('\n')}`;
