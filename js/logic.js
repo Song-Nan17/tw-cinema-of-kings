@@ -224,7 +224,7 @@ function getSelectedMovie(id) {
 
 function generateDetails(movie) {
     generateName(movie);
-    generateOther(movie);
+    generateBasic(movie);
 }
 function generateName(movie) {
     let nameString;
@@ -235,13 +235,12 @@ function generateName(movie) {
     }
     document.getElementById('name').innerHTML = nameString;
 }
-function generateOther(movie) {
+function generateBasic(movie) {
     document.getElementById('poster').src = movie.image;
     document.getElementById('directors').innerHTML = `导演：${movie.directors}`;
     document.getElementById('casts').innerHTML = `主演：${movie.casts}`;
     document.getElementById('genres').innerHTML = `类别：${movie.genres.join(',')}`;
     document.getElementById('year').innerHTML = `上映时间：${movie.year}`;
-    document.getElementById('rating').innerHTML = `豆瓣评分：${movie.rating}`;
     document.getElementById('more').href = movie.alt;
 }
 
@@ -249,7 +248,23 @@ function generateComments(movie) {
     const url = `https://api.douban.com/v2/movie/subject/${movie.id}/comments?apikey=0b2bdeda43b5688921839c8ecb20399b&count=5&client=&udid=`;
     request('get', url, (data) => {
         showComments(data);
+        showOther(data);
+        showRatingDetails(data);
     })
+}
+
+function showOther(data){
+    document.getElementById('durations').innerHTML = `片长：${data.subject.durations[0]}`;
+}
+
+function showRatingDetails(data) {
+    document.getElementById('aboutRating').innerHTML = 
+    `<p id='rating'>${data.subject.rating.average}</p>
+    <p>${generateStar(1).join('')} <span>${data.subject.rating.details[1]}</span></p>
+    <p>${generateStar(2).join('')} <span>${data.subject.rating.details[2]}</span></p>
+    <p>${generateStar(3).join('')} <span>${data.subject.rating.details[3]}</span></p>
+    <p>${generateStar(4).join('')} <span>${data.subject.rating.details[4]}</span></p>
+    <p>${generateStar(5).join('')} <span>${data.subject.rating.details[5]}</span></p>`
 }
 
 function showComments(data) {
@@ -273,7 +288,7 @@ function displayComments(comments) {
 function generateStar(value) {
     let stars = ['☆', '☆', '☆', '☆', '☆'];
     return stars.map((star, index, arr) => {
-        if (index <= value - 1) {
+        if (index < value) {
             return '★';
         }
         return star;
