@@ -96,12 +96,37 @@ function showMoviesBySort(sortName, movieNumber) {
     }
 }
 
+
+function showMoviesBySearchSort(sortName, movieNumber) {
+    if (!sortName) {
+        return
+    }
+    const displayMovies = getSearchSortMovies(sortName);
+    const movieDivs = getDisplay(displayMovies);
+    if (!movieNumber || movieDivs.length <= movieNumber) {
+        document.getElementById('recommend').innerHTML = movieDivs.join('\n');
+    }
+    else {
+        document.getElementById('recommend').innerHTML = movieDivs.slice(0, 10).join('\n')
+            + `<p id="moreMovies" onclick = "showMoreMovies()">更多>></p>`;
+    }
+}
+
 function getDisplayMovies(sortName) {
     let movies = getMoviesFromStorage();
     if (sortName !== '全部') {
         movies = movies.filter(movie => movie.genres.includes(sortName));
     }
     return movies;
+}
+
+function getSearchSortMovies(sortName) {
+    let movies = getSearchResult();
+    if (sortName !== '全部') {
+        movies = movies.filter(movie => movie.genres.includes(sortName));
+    }
+    return movies;
+
 }
 
 function getDisplay(displayMovies) {
@@ -145,16 +170,18 @@ function getSearchContentFromUrl() {
     return decodeURI(searchContent);
 }
 
-
 function getAndShowSearchResult() {
+    let searchResult = getSearchResult();
+    showSearchResult(searchResult);
+}
+
+function getSearchResult() {
     const searchContent = getSearchContentFromUrl();
 
     if (Number(searchContent)) {
-        let movie = getIdSearchResult(searchContent);
-        showSearchResult(movie);
+        return getIdSearchResult(searchContent);
     } else {
-        let movies = getNameSearchResult(searchContent);
-        showSearchResult(movies)
+        return getNameSearchResult(searchContent);
     }
 
 }
@@ -253,13 +280,13 @@ function generateComments(movie) {
     })
 }
 
-function showOther(data){
+function showOther(data) {
     document.getElementById('durations').innerHTML = `片长：${data.subject.durations[0]}`;
 }
 
 function showRatingDetails(data) {
-    document.getElementById('aboutRating').innerHTML = 
-    `<p id='rating'>${data.subject.rating.average}</p>
+    document.getElementById('aboutRating').innerHTML =
+        `<p id='rating'>${data.subject.rating.average}</p>
     <p>${generateStar(1).join('')} <span>${data.subject.rating.details[1]}</span></p>
     <p>${generateStar(2).join('')} <span>${data.subject.rating.details[2]}</span></p>
     <p>${generateStar(3).join('')} <span>${data.subject.rating.details[3]}</span></p>

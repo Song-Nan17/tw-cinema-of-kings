@@ -20,6 +20,13 @@ function toShowMoviesBySort(event) {
     showMoviesBySort(getSortName(event),10);
 }
 
+function toShowMoviesBySearchSort(event) {
+    showMoviesBySearchSort(getSortName(event),10);
+
+
+
+}
+
 function showMoreMovies() {
     showMoviesBySort(getSortNameInStorage());
 }
