@@ -28,6 +28,7 @@ function playImages(images, i) {
     }, 3000);
 }
 
+
 function showMovieSortTable() {
     const sortArr = getSortArr();
     const liTags = sortArr.map(sortName => `<li>${sortName}</li>`);
@@ -38,6 +39,29 @@ function getSortArr() {
     const movies = getMoviesFromStorage();
     const movieSorts = movies.reduce((sortArr, movie) => sortArr = sortArr.concat(movie.genres), ['全部']);
     return movieSorts.filter((sort, index, sortArr) => sortArr.indexOf(sort) === index);
+}
+
+function showSearchSortTable() {
+    const searchSorts = getSearchSort();
+    const liTags = searchSorts.map(sortName => `<li>${sortName}</li>`);
+    document.getElementById('movieSortTable').innerHTML = liTags.join('\n');
+}
+
+function getSearchSort() {
+    const searchMovies = getSearchMovies();
+    const searchSorts = searchMovies.reduce((sortArr, movie) => sortArr = sortArr.concat(movie.genres), []);
+    return searchSorts.filter((sort, index, sortArr) => sortArr.indexOf(sort) === index);
+
+}
+
+function getSearchMovies() {
+    const searchContent = getSearchContentFromUrl();
+    if (Number(searchContent)) {
+        return getIdSearchResult(searchContent);
+    } else {
+        return getNameSearchResult(searchContent);
+    }
+
 }
 
 function getSortName(event) {
@@ -121,31 +145,39 @@ function getSearchContentFromUrl() {
     return decodeURI(searchContent);
 }
 
-function showSearchResult() {
+
+function getAndShowSearchResult() {
     const searchContent = getSearchContentFromUrl();
+
     if (Number(searchContent)) {
-        showIdSearchResult(searchContent);
+        let movie = getIdSearchResult(searchContent);
+        showSearchResult(movie);
     } else {
-        showNameSearchResult(searchContent);
+        let movies = getNameSearchResult(searchContent);
+        showSearchResult(movies)
     }
+
 }
 
-function showIdSearchResult(movieId) {
-    const movies = getMoviesFromStorage();
-    let idResult = movies.filter(movie => movie.id == movieId);
-    const showResult = getDisplay(idResult);
+
+function showSearchResult(movies) {
+    const showResult = getDisplay(movies);
     document.getElementById('recommend').innerHTML = `
     <p>搜索结果：</P>
     ${showResult.join('\n')}`;
 }
 
-function showNameSearchResult(movieName) {
+function getIdSearchResult(movieId) {
     const movies = getMoviesFromStorage();
-    let nameResults = movies.filter(movie => movie.title.includes(movieName));
-    const showResult = getDisplay(nameResults);
-    document.getElementById('recommend').innerHTML = `
-      ${showResult.join('\n')}`;
+    return movies.filter(movie => movie.id == movieId);
 }
+
+function getNameSearchResult(movieName) {
+    const movies = getMoviesFromStorage();
+    return movies.filter(movie => movie.title.includes(movieName));
+}
+
+
 
 function showHighScoreMovies() {
     const highScoreMovies = getMoviesScoreAbove(8.8)

@@ -3,7 +3,7 @@
     ,
     {"id":"1291546","alt":"https://movie.douban.com/subject/1291546/","year":"1993","title":"霸王别姬","rating":"9.5","original_title":"霸王别姬","directors":"陈凯歌","casts":"张国荣,张丰毅,巩俐","genres":"剧情,爱情,同性","image":"https://img3.doubanio.com/view/movie_poster_cover/spst/public/p1910813120.jpg"}
     ,
-    {"id":"1291548","alt":"https://movie.douban.com/subject/1291548/","year":"1989","title":"死亡诗社","rating":"8.9","original_title":"Dead Poets Society","directors":"彼得·威尔","casts":"罗宾·威廉姆斯,罗伯特·肖恩·莱纳德,伊桑·霍克","genres":"剧情","image":"https://img3.doubanio.com/view/movie_poster_cover/spst/public/p1910813120.jpg"}
+    {"id":"1291548","alt":"https://movie.douban.com/subject/1291548/","year":"1989","title":"死亡诗社","rating":"8.9","original_title":"Dead Poets Society","directors":"彼得·威尔","casts":"罗宾·威廉姆斯,罗伯特·肖恩·莱纳德,伊桑·霍克","genres":"剧情","image":"https://img3.doubanio.com/view/photo/s_ratio_poster/public/p1910824340.webp"}
     ,
     {"id":"1291549","alt":"https://movie.douban.com/subject/1291549/","year":"2004","title":"放牛班的春天","rating":"9.2","original_title":"Les choristes","directors":"克里斯托夫·巴拉蒂","casts":"热拉尔·朱尼奥,让-巴蒂斯特·莫尼耶,弗朗索瓦·贝莱昂","genres":"剧情,音乐","image":"https://img3.doubanio.com/view/movie_poster_cover/spst/public/p1910824951.jpg"}
     ,

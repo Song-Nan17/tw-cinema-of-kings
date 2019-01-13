@@ -8,13 +8,22 @@
 
 #movieSortTable li {
   float: left;
-  padding: 8px 5px;
+  padding: 8px 10px;
   color: black;
   cursor: pointer;
+  text-align: center;
+  width: 55px;
 }
 
 #movieSortTable li a {
   text-decoration: none;
   text-align: center;
   font-weight: lighter;
+}
+
+#moreMovies {
+  text-align: right;
+  margin-top: 10px;
+  cursor: pointer;
+  padding-right: 75px;
 }

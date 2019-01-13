@@ -31,8 +31,8 @@ function showMoreMovies() {
 
 function onloadShowResult() {
     storageInit(data);
-    showMovieSortTable();
-    showSearchResult();
+    showSearchSortTable();
+    getAndShowSearchResult();
 }
 
 

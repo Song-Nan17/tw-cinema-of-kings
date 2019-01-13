@@ -6,8 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Home Page</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" media="screen" href="../css/common.css" />
   <link rel="stylesheet" type="text/css" media="screen" href="../css/home-page.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="../css/common.css" />
   <script src="../js/jquery.js"></script>
   <script src="../js/movies.js"></script>
   <script src="../js/eventListener.js"></script>
@@ -19,12 +19,12 @@
   <header>
     <span id="logo" onclick="toHomePage()">思沃影院</span>
     <input id="searchBox" type="search" placeholder="输入电影名称或id搜索电影" onkeypress="if(event.keyCode==13) {toSearchPage()}" />
-    <!-- <button type="submit">搜索</button> -->
+    <button type="submit">搜索</button>
   </header>
   <div id="movie">
     <div id="slideShow">
       <img id="slideShowImg" src="" />
-      <p id="imgNumber"></p>
+      <p id="slideShowButton"></p>
     </div>
     <div id="movieSort">
       <p>电影分类</p>
