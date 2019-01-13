@@ -3,7 +3,7 @@
 }
 #introduction {
   overflow: hidden;
-  padding: 20px 0;
+  /* padding: 20px 0; */
 }
 #poster {
   float: left;
@@ -28,7 +28,8 @@
   font-size: smaller;
 }
 .author {
-  color: skyblue;
+  /* color: skyblue; */
+  color: #37a;
 }
 .star {
   color: orange;

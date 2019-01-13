@@ -16,7 +16,7 @@ function displayImage(images, i) {
     document.getElementById('slideShowImg').src = images[i];
     let pageNumber = ['○', '○', '○'];
     pageNumber[i] = '●';
-    document.getElementById('slideShowButton').innerHTML = pageNumber.join('');
+    document.getElementById('imgNumber').innerHTML = pageNumber.join('');
     playImages(images, i);
 
 }
@@ -54,7 +54,7 @@ function changeClickedSortColor(event) {
     for (i = 0; i < liTags.length; i++) {
         liTags[i].style.color = 'black';
     }
-    event.target.style.color = 'red';
+    event.target.style.color = '#27a';
 }
 
 function showMoviesBySort(sortName, movieNumber) {
@@ -123,7 +123,7 @@ function getSearchContentFromUrl() {
 
 function showSearchResult() {
     const searchContent = getSearchContentFromUrl();
-    if (Number(searchContent) === searchContent) {
+    if (Number(searchContent)) {
         showIdSearchResult(searchContent);
     }
     showNameSearchResult(searchContent);
