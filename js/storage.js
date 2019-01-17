@@ -11,6 +11,16 @@ function storageSortName(sortName) {
     localStorage.setItem('sortName', sortName);
 }
 
+function storageSortMovies(sortMovies) {
+    sortMovies = JSON.stringify(sortMovies);
+    localStorage.setItem("sortMovies", sortMovies);
+}
+
 function getSortNameInStorage() {
     return localStorage.getItem('sortName');
+}
+
+function getSortMoviesInStorage() {
+    const sortMovies = localStorage.getItem("sortMovies");
+    return JSON.parse(sortMovies);
 }

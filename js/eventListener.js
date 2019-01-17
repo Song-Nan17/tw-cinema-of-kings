@@ -16,30 +16,24 @@ function onloadPageListener() {
     slideShow()
 }
 
-function toShowMoviesBySort(event) {
-    showMoviesBySort(getSortName(event),10);
+function showMoviesBySortListener(event) {
+    toShowMoviesBySort(event);
 }
 
-function toShowMoviesBySearchSort(event) {
-    showMoviesBySearchSort(getSortName(event),10);
-
-
-
+function showMoviesBySearchSortListener(event) {
+    showMoviesBySearchSort(event);
 }
 
-function showMoreMovies() {
-    showMoviesBySort(getSortNameInStorage());
+function showMoreMoviesListener() {
+    showMoreMovies();
 }
 
 function onloadShowResult() {
-    storageInit(data);
     showSearchSortTable();
     getAndShowSearchResult();
 }
 
-
 function onloadShowMovie() {
-    storageInit(data);
     showMovieDetails();
 }
 

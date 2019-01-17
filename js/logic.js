@@ -81,55 +81,46 @@ function changeClickedSortColor(event) {
     event.target.style.color = '#27a';
 }
 
-function showMoviesBySort(sortName, movieNumber) {
-    if (!sortName) {
-        return
-    }
-    const displayMovies = getDisplayMovies(sortName);
-    const movieDivs = getDisplay(displayMovies);
+function toShowMoviesBySort(event) {
+    const sortName = getSortName(event);
+    const movies = getMoviesFromStorage();
+    const sortMovies = getMoviesBySort(sortName, movies);
+    storageSortMovies(sortMovies);
+    showMoviesBySort(sortMovies, 10);
+}
+
+function showMoviesBySearchSort(event) {
+    const sortName = getSortName(event);
+    const searchMoives = getSearchResult();
+    const sortMovies = getMoviesBySort(sortName, searchMoives);
+    storageSortMovies(sortMovies);
+    showMoviesBySort(sortMovies, 10);
+}
+
+function showMoviesBySort(sortMovies, movieNumber) {
+    const movieDivs = getMovieDivs(sortMovies);
     if (!movieNumber || movieDivs.length <= movieNumber) {
         document.getElementById('recommend').innerHTML = movieDivs.join('\n');
     }
     else {
-        document.getElementById('recommend').innerHTML = movieDivs.slice(0, 10).join('\n')
-            + `<p id="moreMovies" onclick = "showMoreMovies()">更多>></p>`;
+        document.getElementById('recommend').innerHTML = movieDivs.slice(0, movieNumber).join('\n')
+            + `<p id="moreMovies" onclick = "showMoreMoviesListener()">更多>></p>`;
     }
 }
 
-
-function showMoviesBySearchSort(sortName, movieNumber) {
-    if (!sortName) {
-        return
-    }
-    const displayMovies = getSearchSortMovies(sortName);
-    const movieDivs = getDisplay(displayMovies);
-    if (!movieNumber || movieDivs.length <= movieNumber) {
-        document.getElementById('recommend').innerHTML = movieDivs.join('\n');
-    }
-    else {
-        document.getElementById('recommend').innerHTML = movieDivs.slice(0, 10).join('\n')
-            + `<p id="moreMovies" onclick = "showMoreMovies()">更多>></p>`;
-    }
+function showMoreMovies() {
+    const sortMovies = getSortMoviesInStorage();
+    showMoviesBySort(sortMovies);
 }
 
-function getDisplayMovies(sortName) {
-    let movies = getMoviesFromStorage();
+function getMoviesBySort(sortName, movies) {
     if (sortName !== '全部') {
         movies = movies.filter(movie => movie.genres.includes(sortName));
     }
     return movies;
 }
 
-function getSearchSortMovies(sortName) {
-    let movies = getSearchResult();
-    if (sortName !== '全部') {
-        movies = movies.filter(movie => movie.genres.includes(sortName));
-    }
-    return movies;
-
-}
-
-function getDisplay(displayMovies) {
+function getMovieDivs(displayMovies) {
     return displayMovies.map(movie =>
         `<div>
       <img class="moviePoster" src=${movie.image} />
@@ -188,7 +179,7 @@ function getSearchResult() {
 
 
 function showSearchResult(movies) {
-    const showResult = getDisplay(movies);
+    const showResult = getMovieDivs(movies);
     document.getElementById('recommend').innerHTML = `
     <p>搜索结果：</P>
     ${showResult.join('\n')}`;
@@ -196,7 +187,7 @@ function showSearchResult(movies) {
 
 function getIdSearchResult(movieId) {
     const movies = getMoviesFromStorage();
-    return movies.filter(movie => movie.id == movieId);
+    return movies.filter(movie => movie.id.includes(movieId));
 }
 
 function getNameSearchResult(movieName) {
@@ -210,7 +201,7 @@ function showHighScoreMovies() {
     const highScoreMovies = getMoviesScoreAbove(8.8)
     const randoms = generateRandoms(highScoreMovies.length, 10);
     const randomMovies = randoms.map(random => highScoreMovies[random]);
-    const movieDivs = getDisplay(randomMovies);
+    const movieDivs = getMovieDivs(randomMovies);
     document.getElementById('recommend').innerHTML = `
     <p>高分电影推荐</p>
     ${movieDivs.join('\n')}`;
@@ -336,11 +327,11 @@ function getSameMovies(selectedMovie) {
 function showSameMovies(movies) {
     let movieDivs = [];
     if (movies.length <= 10) {
-        movieDivs = getDisplay(movies);
+        movieDivs = getMovieDivs(movies);
     } else {
         const randoms = generateRandoms(movies.length, 10);
         const randomMovies = randoms.map(random => movies[random]);
-        movieDivs = getDisplay(randomMovies);
+        movieDivs = getMovieDivs(randomMovies);
     }
     document.getElementById('recommend').innerHTML = `
     <p>同类电影推荐</p>
