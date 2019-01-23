@@ -21,6 +21,10 @@ function showMoviesBySortListener(event) {
     toShowMoviesBySort(event);
 }
 
+function switchMovies(event) {
+    showSortMoviesByPage(event);
+}
+
 function showMoviesBySearchSortListener(event) {
     showMoviesBySearchSort(event);
 }

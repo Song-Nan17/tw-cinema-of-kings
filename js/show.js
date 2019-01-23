@@ -66,8 +66,7 @@ function showMoviesBySort(sortMovies, movieNumber) {
   const movieDivs = getMovieDivs(sortMovies);
   document.getElementById('sortMovies').innerHTML = `${movieDivs.slice(0, movieNumber).join('\n')}
     <form class="page">${generatePageButtons(sortMovies.length)}</form>
-    <p id="moreMovies" onclick = "showMoreMoviesListener()">更多>></p>`;
-  
+    <p id="moreMovies" onclick = "showMoreMoviesListener()">更多>></p>`; 
 }
 
 function showMoreMovies() {

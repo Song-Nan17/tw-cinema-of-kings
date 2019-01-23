@@ -48,7 +48,7 @@ function generatePageButtons(number) {
     numbers.length = Math.ceil(number/12);
     numbers.fill(0);
     let buttons = numbers.map((number,index,arr) => 
-    `<button type="button" id="${index}" class="page-button">${index+1}</button>`);
+    `<button type="button" id="${index}" class="page-button" onclick="switchMovies()">${index+1}</button>`);
     console.log(buttons);
     return buttons.join("\n");
 }
