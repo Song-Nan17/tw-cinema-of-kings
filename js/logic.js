@@ -32,7 +32,6 @@ function getSearchMovies() {
     } else {
         return getNameSearchResult(searchContent);
     }
-
 }
 
 function getSortName(event) {
@@ -64,7 +63,7 @@ function getMovieId(event) {
     if (event.target.tagName.toLowerCase() === 'img') {
         const movies = getMoviesFromStorage();
         const movie = movies.find(movie => movie.image === event.target.src);
-        return movie.id;
+        return movie.id; 
     }
 }
 

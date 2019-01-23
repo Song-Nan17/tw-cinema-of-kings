@@ -29,10 +29,12 @@
   width: 55px;
 }
 
-#movieSortTable li a {
-  text-decoration: none;
-  text-align: center;
-  font-weight: lighter;
+#movieSortTable li:hover {
+  color: orange;
+}
+
+#movieSortTable li:first-child {
+  color: #27a;
 }
 
 #moreMovies {
