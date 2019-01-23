@@ -54,14 +54,14 @@ function getMovieDivs(displayMovies) {
 }
 
 function replaceImgSrc(event) {
-    event.src="https://img3.doubanio.com/view/movie_poster_cover/spst/public/p692813374.jpg";
+    event.src = "https://img3.doubanio.com/view/movie_poster_cover/spst/public/p692813374.jpg";
 }
 
 function getMovieId(event) {
     if (event.target.tagName.toLowerCase() === 'img') {
         const movies = getMoviesFromStorage();
         const movie = movies.find(movie => movie.image === event.target.src);
-        return movie.id; 
+        return movie.id;
     }
 }
 
@@ -112,8 +112,16 @@ function getIdSearchResult(movieId) {
 
 function getNameSearchResult(movieName) {
     const movies = getMoviesFromStorage();
-    return movies.filter(movie => movie.title.includes(movieName)) && 
-    movies.filter(movie => movie.original_title.toLowerCase().includes(movieName.toLowerCase()));
+    if (isChinese(movieName)) {
+        return movies.filter(movie => movie.title.includes(movieName))
+    } else {
+        return movies.filter(movie => movie.original_title.toLowerCase().includes(movieName.toLowerCase()));
+    }
+}
+
+function isChinese(string) {
+    let chars = string.split('');
+    return chars.every(char => char >= '\u4e00' && char <= '\u9fa5')
 }
 
 function getMoviesScoreAbove(number) {
