@@ -72,7 +72,7 @@ function isToMovieDetailsPage(movieId) {
 }
 
 function getSearchContent() {
-    return document.getElementById('searchBox').value;
+    return document.getElementById('search-box').value;
 }
 
 function isToMovieSearchPage(searchContent) {

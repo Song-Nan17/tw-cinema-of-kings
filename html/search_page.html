@@ -6,8 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Search Page</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" media="screen" href="../css/search_page.css" />
   <link rel="stylesheet" type="text/css" media="screen" href="../css/common.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="../css/search_page.css" />
 
   <script src="../js/jquery.js"></script>
   <script src="../js/request.js"></script>
@@ -20,10 +20,14 @@
 
 <body onload="onloadShowResult()">
   <header>
-    <span id="logo" onclick="toHomePage()">思沃影院</span>
-    <input id="searchBox" type="search" placeholder="输入电影名称或id搜索电影" onkeypress="if(event.keyCode==13) {toSearchPage()}" />
+    <div class="header-container">
+      <div class="tw-logo">
+        <a class="logo" href="./index.html">思沃影院</a>
+      </div>
+      <input id="search-box" type="search" placeholder="输入电影名称或id搜索电影" onkeypress="if(event.keyCode==13) {toSearchPage()}" />
+    </div>
   </header>
-  <div id="movie">
+  <main>
     <div id="movieSort">
       <p id="releventSort"></p>
       <ul id="movieSortTable" onclick="showMoviesBySearchSortListener(event)">
@@ -31,7 +35,7 @@
     </div>
     <div id="recommend" class="movies-list" onclick="toMovieDetailsPage(event)">
     </div>
-  </div>
+  </main>
   <footer>
     <span>CopyRight@2019-2020天王科技有限公司</span>
     <span class="fright">

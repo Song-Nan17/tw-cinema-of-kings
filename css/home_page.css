@@ -1,3 +1,11 @@
+header {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0);
+}
+main {
+  margin: 0;
+  width: 100%;
+}
 .slide-show {
   height: 420px;
   width: 100%;
