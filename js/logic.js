@@ -120,7 +120,7 @@ function getIdSearchResult(movieId) {
 function getNameSearchResult(movieName) {
     const movies = getMoviesFromStorage();
     if (isChinese(movieName)) {
-        return movies.filter(movie => movie.title.includes(movieName))
+        return movies.filter(movie => movie.title.includes(movieName));
     } else {
         return movies.filter(movie => movie.original_title.toLowerCase().includes(movieName.toLowerCase()));
     }
@@ -128,7 +128,7 @@ function getNameSearchResult(movieName) {
 
 function isChinese(string) {
     let chars = string.split('');
-    return chars.every(char => char >= '\u4e00' && char <= '\u9fa5')
+    return chars.every(char => char >= '\u4e00' && char <= '\u9fa5');
 }
 
 function getMoviesScoreAbove(number) {
