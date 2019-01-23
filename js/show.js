@@ -2,13 +2,14 @@ function slideShow() {
   let slideShowList = document.getElementsByClassName("slide-show-list")[0].children;
   let imgNumber = 0;
   setInterval(() => {
+  imgNumber++;
     playImage(slideShowList, imgNumber);
   }, 3000);
 }
 
 function playImage(slideShowList, imgNumber) {
   let listLength = slideShowList.length;
-  imgNumber++;
+  console.log(imgNumber)
   imgNumber = imgNumber % listLength;
   for (let i = 0; i < listLength; i++) {
     slideShowList[i].className = "";
