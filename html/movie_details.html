@@ -4,8 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <title>movie details</title>
-  <link rel="stylesheet" href="../css/movie_details.css">
   <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/movie_details.css">
   <script src="../js/jquery.js"></script>
   <script src="../js/request.js"></script>
   <script src="../js/movies.js"></script>
@@ -17,10 +17,14 @@
 
 <body onload="onloadShowMovie()">
   <header>
-    <span id="logo" onclick="toHomePage()">思沃影院</span>
-    <input id="searchBox" type="search" placeholder="输入电影名称或id搜索电影" onkeypress="if(event.keyCode==13) {toSearchPage()}" />
+    <div class="header-container">
+      <div class="tw-logo">
+        <a class="logo" href="./index.html">思沃影院</a>
+      </div>
+      <input id="search-box" type="search" placeholder="输入电影名称或id搜索电影" onkeypress="if(event.keyCode==13) {toSearchPage()}" />
+    </div>
   </header>
-  <div id="movie">
+  <main>
     <div id="introduction">
       <h1 id="name"></h1>
       <img id="poster" src="" />
@@ -39,7 +43,7 @@
     </div>
     <div id='recommend' class="movies-list" onclick="toMovieDetailsPage(event)">
     </div>
-  </div>
+  </main>
   <footer>
     <span>CopyRight@2019-2020天王科技有限公司</span>
     <span class="fright">
