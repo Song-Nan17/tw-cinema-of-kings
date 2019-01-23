@@ -53,7 +53,3 @@ function toSearchPage(event) {
 function toHomePage() {
     window.location = `index.html`;
 }
-
-if (document.documentElement.scrollTop == 70) {
-    alert(70);
-}

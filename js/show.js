@@ -26,16 +26,16 @@ function showMovieSortTable() {
   const movies = getMoviesFromStorage();
   const sortMovies = getMoviesBySort('全部', movies);
   storageSortMovies(sortMovies);
-  showMoviesBySort(sortMovies, 10);
+  showMoviesBySort(sortMovies, 12);
 }
 
 function showSearchSortTable() {
   const searchSorts = getSearchSort();
-  if(searchSorts.length > 0) {
-  const liTags = searchSorts.map(sortName => `<li>${sortName}</li>`);
-  document.getElementById('releventSort').innerHTML = `相关分类`;
-  document.getElementById('movieSortTable').innerHTML = liTags.join('\n');    
-  } 
+  if (searchSorts.length > 0) {
+    const liTags = searchSorts.map(sortName => `<li>${sortName}</li>`);
+    document.getElementById('releventSort').innerHTML = `相关分类`;
+    document.getElementById('movieSortTable').innerHTML = liTags.join('\n');
+  }
 }
 
 function changeClickedSortColor(event) {
@@ -51,7 +51,7 @@ function toShowMoviesBySort(event) {
   const movies = getMoviesFromStorage();
   const sortMovies = getMoviesBySort(sortName, movies);
   storageSortMovies(sortMovies);
-  showMoviesBySort(sortMovies, 10);
+  showMoviesBySort(sortMovies, 12);
 }
 
 function showMoviesBySearchSort(event) {
@@ -59,7 +59,7 @@ function showMoviesBySearchSort(event) {
   const searchMoives = getSearchResult();
   const sortMovies = getMoviesBySort(sortName, searchMoives);
   storageSortMovies(sortMovies);
-  showMoviesBySort(sortMovies, 10);
+  showMoviesBySort(sortMovies, 12);
 }
 
 function showMoviesBySort(sortMovies, movieNumber) {
@@ -88,7 +88,7 @@ function showSearchResult(movies) {
 
 function showHighScoreMovies() {
   const highScoreMovies = getMoviesScoreAbove(8.8)
-  const randoms = generateRandoms(highScoreMovies.length, 10);
+  const randoms = generateRandoms(highScoreMovies.length, 12);
   const randomMovies = randoms.map(random => highScoreMovies[random]);
   const movieDivs = getMovieDivs(randomMovies);
   document.getElementById('recommend').innerHTML = `
@@ -139,10 +139,10 @@ function displayComments(comments) {
 
 function showSameMovies(movies) {
   let movieDivs = [];
-  if (movies.length <= 10) {
+  if (movies.length <= 12) {
     movieDivs = getMovieDivs(movies);
   } else {
-    const randoms = generateRandoms(movies.length, 10);
+    const randoms = generateRandoms(movies.length, 12);
     const randomMovies = randoms.map(random => movies[random]);
     movieDivs = getMovieDivs(randomMovies);
   }
