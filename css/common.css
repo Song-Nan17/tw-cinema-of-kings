@@ -90,7 +90,13 @@ footer .fright a {
   height: 230px;
   margin : 5px auto;
 }
-#recommend > div{
+#recommend > div {
+  text-align: center;
+  display: inline-block;
+  width: 190px;
+  margin: 5px;
+}
+.movies-list > div {
   text-align: center;
   display: inline-block;
   width: 190px;

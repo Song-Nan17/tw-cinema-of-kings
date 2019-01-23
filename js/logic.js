@@ -26,7 +26,6 @@ function getSearchMovies() {
     } else {
         return getNameSearchResult(searchContent);
     }
-
 }
 
 function getSortName(event) {
@@ -48,17 +47,21 @@ function getMoviesBySort(sortName, movies) {
 function getMovieDivs(displayMovies) {
     return displayMovies.map(movie =>
         `<div>
-      <img class="moviePoster" src=${movie.image} />
+      <img class="moviePoster" src=${movie.image} onerror="showErrorImg(event)" />
       <p class="movieName">${movie.title}</p>
       <p class="movieScore">评分：${movie.rating}</p>
       </div>`);
+}
+
+function replaceImgSrc(event) {
+    event.src="https://img3.doubanio.com/view/movie_poster_cover/spst/public/p692813374.jpg";
 }
 
 function getMovieId(event) {
     if (event.target.tagName.toLowerCase() === 'img') {
         const movies = getMoviesFromStorage();
         const movie = movies.find(movie => movie.image === event.target.src);
-        return movie.id;
+        return movie.id; 
     }
 }
 
@@ -104,12 +107,13 @@ function getSearchResult() {
 
 function getIdSearchResult(movieId) {
     const movies = getMoviesFromStorage();
-    return movies.filter(movie => movie.id.includes(movieId));
+    return movies.filter(movie => movie.id === movieId);
 }
 
 function getNameSearchResult(movieName) {
     const movies = getMoviesFromStorage();
-    return movies.filter(movie => movie.title.includes(movieName));
+    return movies.filter(movie => movie.title.includes(movieName)) && 
+    movies.filter(movie => movie.original_title.toLowerCase().includes(movieName.toLowerCase()));
 }
 
 function getMoviesScoreAbove(number) {

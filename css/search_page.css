@@ -27,3 +27,11 @@
   cursor: pointer;
   padding-right: 75px;
 }
+
+.keyword {
+  color: #ff6428;
+}
+
+.noResult {
+  color: darkgrey;
+}
