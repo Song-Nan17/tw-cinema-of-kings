@@ -49,7 +49,7 @@ function getMovieDivs(displayMovies) {
         `<div>
       <img class="moviePoster" src=${movie.image} onerror="showErrorImg(event)" />
       <p class="movieName">${movie.title}</p>
-      <p class="movieScore">评分：${movie.rating}</p>
+      <p class="movieScore">${movie.rating}</p>
       </div>`);
 }
 
