@@ -18,6 +18,10 @@ function showMovieSortTable() {
   const sortArr = getSortArr();
   const liTags = sortArr.map(sortName => `<li>${sortName}</li>`);
   document.getElementById('movieSortTable').innerHTML = liTags.join('\n');
+  const movies = getMoviesFromStorage();
+  const sortMovies = getMoviesBySort('全部', movies);
+  storageSortMovies(sortMovies);
+  showMoviesBySort(sortMovies, 10);
 }
 
 function showSearchSortTable() {
@@ -52,13 +56,13 @@ function showMoviesBySearchSort(event) {
 
 function showMoviesBySort(sortMovies, movieNumber) {
   const movieDivs = getMovieDivs(sortMovies);
-  if (!movieNumber || movieDivs.length <= movieNumber) {
+  /*if (!movieNumber || movieDivs.length <= movieNumber) {
     document.getElementById('recommend').innerHTML = movieDivs.join('\n');
   }
-  else {
-    document.getElementById('recommend').innerHTML = movieDivs.slice(0, movieNumber).join('\n')
+  else {*/
+    document.getElementById('sortMovies').innerHTML = movieDivs.slice(0, movieNumber).join('\n')
       + `<p id="moreMovies" onclick = "showMoreMoviesListener()">更多>></p>`;
-  }
+  //}
 }
 
 function showMoreMovies() {
