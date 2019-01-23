@@ -110,12 +110,13 @@ function getSearchResult() {
 
 function getIdSearchResult(movieId) {
     const movies = getMoviesFromStorage();
-    return movies.filter(movie => movie.id.includes(movieId));
+    return movies.filter(movie => movie.id === movieId);
 }
 
 function getNameSearchResult(movieName) {
     const movies = getMoviesFromStorage();
-    return movies.filter(movie => movie.title.includes(movieName));
+    return movies.filter(movie => movie.title.includes(movieName)) && 
+    movies.filter(movie => movie.original_title.toLowerCase().includes(movieName.toLowerCase()));
 }
 
 function getMoviesScoreAbove(number) {
