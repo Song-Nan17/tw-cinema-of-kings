@@ -89,7 +89,23 @@ footer .fright a {
   width: 150px;
   height: 230px;
   margin : 5px auto;
+  cursor: pointer;
 }
+
+.moviePoster:hover {
+  transform: scale(1.1)
+}
+
+.movieName {
+  color:#37a;
+}
+
+.movieScore {
+  color:#e09015;
+}
+
+
+
 #recommend > div {
   text-align: center;
   display: inline-block;
