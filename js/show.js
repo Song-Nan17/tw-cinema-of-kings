@@ -26,8 +26,11 @@ function showMovieSortTable() {
 
 function showSearchSortTable() {
   const searchSorts = getSearchSort();
+  if(searchSorts.length > 0) {
   const liTags = searchSorts.map(sortName => `<li>${sortName}</li>`);
-  document.getElementById('movieSortTable').innerHTML = liTags.join('\n');
+  document.getElementById('releventSort').innerHTML = `相关分类`;
+  document.getElementById('movieSortTable').innerHTML = liTags.join('\n');    
+  } 
 }
 
 function changeClickedSortColor(event) {
@@ -66,10 +69,16 @@ function showMoreMovies() {
 }
 
 function showSearchResult(movies) {
-  const showResult = getMovieDivs(movies);
-  document.getElementById('recommend').innerHTML = `
-  <p>搜索结果：</P>
-  ${showResult.join('\n')}`;
+  if (movies.length > 0) {
+    const showResult = getMovieDivs(movies);
+    document.getElementById('recommend').innerHTML = `
+    <p>搜索结果：</P>
+    ${showResult.join('\n')}`;
+  } else {
+    document.getElementById('recommend').innerHTML = `
+    <p class="noResult">抱歉，没有找到<a class="keyword">“${getSearchContentFromUrl()}”</a>的相关搜索结果</p>`;
+  }
+
 }
 
 function showHighScoreMovies() {
