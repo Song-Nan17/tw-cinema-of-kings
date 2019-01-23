@@ -13,6 +13,10 @@ function showMoviesBySearchSortListener(event) {
     showMoviesBySearchSort(event);
 }
 
+function showErrorImg(event) {
+    replaceImgSrc(event);
+}
+
 function showMoreMoviesListener() {
     showMoreMovies();
 }

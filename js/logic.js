@@ -53,10 +53,14 @@ function getMoviesBySort(sortName, movies) {
 function getMovieDivs(displayMovies) {
     return displayMovies.map(movie =>
         `<div>
-      <img class="moviePoster" src=${movie.image} />
+      <img class="moviePoster" src=${movie.image} onerror="showErrorImg(event)" />
       <p class="movieName">${movie.title}</p>
       <p class="movieScore">评分：${movie.rating}</p>
       </div>`);
+}
+
+function replaceImgSrc(event) {
+    event.src="https://img3.doubanio.com/view/movie_poster_cover/spst/public/p692813374.jpg";
 }
 
 function getMovieId(event) {

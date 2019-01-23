@@ -56,13 +56,8 @@ function showMoviesBySearchSort(event) {
 
 function showMoviesBySort(sortMovies, movieNumber) {
   const movieDivs = getMovieDivs(sortMovies);
-  /*if (!movieNumber || movieDivs.length <= movieNumber) {
-    document.getElementById('recommend').innerHTML = movieDivs.join('\n');
-  }
-  else {*/
-    document.getElementById('sortMovies').innerHTML = movieDivs.slice(0, movieNumber).join('\n')
-      + `<p id="moreMovies" onclick = "showMoreMoviesListener()">更多>></p>`;
-  //}
+  document.getElementById('sortMovies').innerHTML = movieDivs.slice(0, movieNumber).join('\n')
+    + `<p id="moreMovies" onclick = "showMoreMoviesListener()">更多>></p>`;
 }
 
 function showMoreMovies() {
