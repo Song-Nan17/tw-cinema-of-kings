@@ -70,7 +70,7 @@ function getMovieId(event) {
 
 function isToMovieDetailsPage(movieId) {
     if (movieId) {
-        window.location = `movie-details.html?id=${movieId}`;
+        window.location = `movie_details.html?id=${movieId}`;
     }
 }
 
@@ -82,7 +82,7 @@ function isToMovieSearchPage(searchContent) {
     if (!searchContent) {
         return
     }
-    let searchUrl = 'search-page.html?search=' + encodeURI(searchContent);
+    let searchUrl = 'search_page.html?search=' + encodeURI(searchContent);
     window.location.href = searchUrl;
 }
 
