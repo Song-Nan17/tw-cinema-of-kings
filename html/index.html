@@ -19,23 +19,27 @@
 
 <body onload="onloadPageListener()">
   <header>
-    <span id="logo" onclick="toHomePage()">思沃影院</span>
-    <input id="searchBox" type="search" placeholder="输入电影名称或id搜索电影" onkeypress="if(event.keyCode==13) {toSearchPage()}" />
+    <div class="header-container">
+      <div class="tw-logo">
+        <a class="logo" href="./index.html">思沃影院</a>
+      </div>
+      <input class="search-box" type="search" placeholder="输入电影名称或id搜索电影" onkeypress="if(event.keyCode==13) {toSearchPage()}" />
+    </div>
   </header>
-  <div id="movie">
+<main>
     <div id="slideShow">
-      <img id="slideShowImg" src="" />
-      <p id="imgNumber"></p>
-    </div>
-    <div id="movieSort">
-      <p>电影分类</p>
-      <ul id="movieSortTable" onclick="showMoviesBySortListener(event)">
-        <li>全部</li>
-      </ul>
-    </div>
-    <div id="recommend" onclick="toMovieDetailsPage(event)">
-    </div>
-  </div>
+        <img id="slideShowImg" src="" />
+        <p id="imgNumber"></p>
+      </div>
+      <div id="movieSort">
+        <p>电影分类</p>
+        <ul id="movieSortTable" onclick="showMoviesBySortListener(event)">
+          <li>全部</li>
+        </ul>
+      </div>
+      <div id="recommend" onclick="toMovieDetailsPage(event)">
+      </div>
+</main>
   <footer>
     <span>CopyRight@2019-2020天王科技有限公司</span>
     <span class="fright">
