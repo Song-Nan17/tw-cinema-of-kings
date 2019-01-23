@@ -1,17 +1,22 @@
 function slideShow() {
-  const images = ["http://ww1.sinaimg.cn/large/a85d55ddly1fz3ttvmat8j20g4096gn8.jpg",
-    "http://ww1.sinaimg.cn/large/a85d55ddly1fz3tydey73j20rs0goh3e.jpg",
-    "http://ww1.sinaimg.cn/large/a85d55ddly1fz3u2l7hl0j21180n7q9z.jpg"];
-  let i = 0;
-  displayImage(images, i);
+  let slideShowList = document.getElementsByClassName("slide-show-list")[0].children;
+  let imgNumber = 0;
+  setInterval(() => {
+    playImage(slideShowList, imgNumber);
+  }, 3000);
 }
 
-function displayImage(images, i) {
-  document.getElementById('slideShowImg').src = images[i];
-  let pageNumber = ['○', '○', '○'];
-  pageNumber[i] = '●';
-  document.getElementById('imgNumber').innerHTML = pageNumber.join('');
-  playImages(images, i);
+function playImage(slideShowList, imgNumber) {
+  let listLength = slideShowList.length;
+  imgNumber++;
+  imgNumber = imgNumber % listLength;
+  for (let i = 0; i < listLength; i++) {
+    slideShowList[i].className = "";
+    slideShowList[i].style.display = "none";
+  }
+  slideShowList[imgNumber].className = "current";
+  let slideShowImg = document.getElementsByClassName("current");
+  slideShowImg[0].style.display = "block";
 }
 
 function showMovieSortTable() {

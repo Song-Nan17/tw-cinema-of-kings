@@ -5,12 +5,6 @@ function formatGenresToArray(data) {
     })
 }
 
-function playImages(images, i) {
-    setTimeout(() => {
-        i++;
-        displayImage(images, i % 3);
-    }, 3000);
-}
 
 function getSortArr() {
     const movies = getMoviesFromStorage();

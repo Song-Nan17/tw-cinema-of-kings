@@ -26,20 +26,34 @@
       <input class="search-box" type="search" placeholder="输入电影名称或id搜索电影" onkeypress="if(event.keyCode==13) {toSearchPage()}" />
     </div>
   </header>
-<main>
-    <div id="slideShow">
-        <img id="slideShowImg" src="" />
-        <p id="imgNumber"></p>
-      </div>
-      <div id="movieSort">
-        <p>电影分类</p>
-        <ul id="movieSortTable" onclick="showMoviesBySortListener(event)">
-          <li>全部</li>
-        </ul>
-      </div>
-      <div id="recommend" onclick="toMovieDetailsPage(event)">
-      </div>
-</main>
+  <main>
+    <div class="slide-show">
+      <ul class="slide-show-list">
+        <li class="current" style="background-image: url(http://ykimg.alicdn.com/develop/image/2019-01-22/d323fcde8c473580d27d6082b0c04d39.jpg); background-color: rgb(232, 232, 232); opacity: 1;">
+        </li>
+        <li style="background-image: url(http://ykimg.alicdn.com/develop/image/2019-01-22/019c28d92827fa63c2cd08e6e23ca61a.jpg); background-color: rgb(219, 236, 206); opacity: 1; display: none;">
+        </li>
+        <li style="background-image: url(http://ykimg.alicdn.com/develop/image/2019-01-23/5f73d2ab7790e52efcb5ae3287779897.jpg); background-color: rgb(50, 0, 1); opacity: 1; display: none;">
+        </li>
+        <li style="background-image: url(http://ykimg.alicdn.com/develop/image/2019-01-21/0c5ce975e53247fe1c39e4c37a208a13.jpg); background-color: rgb(7, 36, 57); opacity: 1; display: none;">
+        </li>
+        <li style="background-image: url(http://ykimg.alicdn.com/develop/image/2019-01-22/b40ff20a115fa6a353e08ff12ca009f8.jpg); background-color: rgb(7, 36, 57); opacity: 1; display: none;">
+        </li>
+        <li style="background-image: url(http://ykimg.alicdn.com/develop/image/2019-01-22/39c5a0f0d2888331fc6b1e770e3f9515.jpg); background-color: rgb(246, 226, 211); opacity: 1; display: none;">
+        </li>
+        <li style="background-image: url(http://ykimg.alicdn.com/develop/image/2019-01-21/31ba31ef0332efd3995f149a2099b5e6.jpg); background-color: rgb(246, 226, 211); opacity: 1; display: none;">
+        </li>
+      </ul>
+    </div>
+    <div id="movieSort">
+      <p>电影分类</p>
+      <ul id="movieSortTable" onclick="showMoviesBySortListener(event)">
+        <li>全部</li>
+      </ul>
+    </div>
+    <div id="recommend" onclick="toMovieDetailsPage(event)">
+    </div>
+  </main>
   <footer>
     <span>CopyRight@2019-2020天王科技有限公司</span>
     <span class="fright">

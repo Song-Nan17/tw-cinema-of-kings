@@ -8,7 +8,7 @@ header {
   position: absolute;
   width: 100%;
   top: 0;
-  background: rgba(225, 225, 225, 0.2);
+  /* background: rgba(225, 225, 225, 0.2); */
   z-index: 1;
 }
 
@@ -41,6 +41,7 @@ margin: 0 auto;
   float: left;
   margin: 17px 0 17px 100px;
   background: rgba(225, 225, 225, 0.3);
+  color: white;
   width: 50%;
   text-align: left;
   height: 36px;
@@ -58,7 +59,7 @@ main {
 } 
 main > div{
   width: 99%;
-  margin: 50px auto;
+  /* margin: 50px auto; */
 }
 main > div > p {
   font-size: larger;
