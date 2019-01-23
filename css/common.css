@@ -56,7 +56,7 @@ margin: 0 auto;
 }
 main {
   margin: 80px auto 0 auto;
-  width: 80%;
+  width: 90%;
 }
 main > div{
   width: 99%;
@@ -93,7 +93,7 @@ footer .fright a {
   cursor: pointer;
 }
 
-.moviePoster:hover {
+.movies-list > div:hover {
   transform: scale(1.1)
 }
 
@@ -105,17 +105,11 @@ footer .fright a {
   color:#e09015;
 }
 
-
-
-#recommend > div {
-  text-align: center;
-  display: inline-block;
-  width: 190px;
-  margin: 5px;
-}
 .movies-list > div {
   text-align: center;
   display: inline-block;
-  width: 190px;
-  margin: 5px;
+  width: 170px;
+  /* background: red; */
+  margin: 10px 8px;
+  box-shadow: 1px 1px 1px rgb(175, 175, 175) ;
 }
