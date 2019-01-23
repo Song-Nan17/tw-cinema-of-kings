@@ -44,6 +44,23 @@
   color: #27a;
 }
 
+.page {
+  text-align: center;
+}
+
+.page-button {
+  min-width: 33px;
+  height: 28px;
+  color: #333;
+  line-height: 27px;
+  font-size: 14px;
+  margin: 0 5px;
+  vertical-align: middle;
+  border-radius: 2px;
+  border: 1px solid #e3e3e3;
+  background: #fff;
+}
+
 #moreMovies {
   text-align: right;
   margin-top: 10px;

@@ -5,7 +5,6 @@ function formatGenresToArray(data) {
     })
 }
 
-
 function getSortArr() {
     const movies = getMoviesFromStorage();
     const movieSorts = movies.reduce((sortArr, movie) => sortArr = sortArr.concat(movie.genres), ['全部']);
@@ -42,6 +41,16 @@ function getMoviesBySort(sortName, movies) {
         movies = movies.filter(movie => movie.genres.includes(sortName));
     }
     return movies;
+}
+
+function generatePageButtons(number) {
+    let numbers = [];
+    numbers.length = Math.ceil(number/12);
+    numbers.fill(0);
+    let buttons = numbers.map((number,index,arr) => 
+    `<button type="button" id="${index}" class="page-button">${index+1}</button>`);
+    console.log(buttons);
+    return buttons.join("\n");
 }
 
 function getMovieDivs(displayMovies) {
@@ -96,13 +105,11 @@ function getAndShowSearchResult() {
 
 function getSearchResult() {
     const searchContent = getSearchContentFromUrl();
-
     if (Number(searchContent)) {
         return getIdSearchResult(searchContent);
     } else {
         return getNameSearchResult(searchContent);
     }
-
 }
 
 function getIdSearchResult(movieId) {
