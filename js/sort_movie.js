@@ -5,11 +5,12 @@ function getSortArr() {
 }
 
 function showMovieSortTable() {
-    const sortArr = getSortArr();
-    const liTags = sortArr.map(sortName => `<li>${sortName}</li>`);
+    let sortArr = getSortArr();
+    let liTags = sortArr.map(sortName => `<li>${sortName}</li>`);
+    liTags[0]=`<li class="sort-clicked">${sortArr[0]}</li>`
     document.getElementById('movieSortTable').innerHTML = liTags.join('\n');
-    const movies = getMoviesFromStorage();
-    const sortMovies = getMoviesBySort('全部', movies);
+    let movies = getMoviesFromStorage();
+    let sortMovies = getMoviesBySort('全部', movies);
     storageSortMovies(sortMovies);
     showMoviesBySort(sortMovies, 12);
   }
