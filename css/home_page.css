@@ -29,27 +29,28 @@ main {
 
 #movieSortTable {
   list-style: none;
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
-  overflow: hidden;
   background: rgba(144, 167, 185, 0.2);
 }
 
 #movieSortTable li {
-  float: left;
-  padding: 8px 10px;
+  display: inline-block;
+  margin: 10px 15px;
+  padding-bottom: 5px;
   color: black;
   cursor: pointer;
   text-align: center;
-  width: 55px;
+  width: 48px;
 }
 
 #movieSortTable li:hover {
-  color: orange;
+  color: rgb(28, 97, 139);
 }
 
-#movieSortTable li:first-child {
-  color: #27a;
+#movieSortTable .sort-clicked {
+  color: rgb(28, 97, 139);
+  border-bottom: solid 2px rgb(28, 97, 139);
 }
 
 .page {
