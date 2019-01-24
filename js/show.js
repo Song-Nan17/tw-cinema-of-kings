@@ -38,9 +38,6 @@ function changeClickedLiClassName(event) {
   for (i = 0; i < liTags.length; i++) {
     liTags[i].className = '';
   }
-  // event.target.className = '#27a';
   event.target.className = 'sort-clicked';
   console.log(liTags);
-
-  // console.log(event.target.className)
 }
