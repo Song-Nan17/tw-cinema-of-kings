@@ -2,19 +2,12 @@ function onloadPageListener() {
     storageInit(data);
     showMovieSortTable();
     showHighScoreMovies();
+    isToFixHeader();
     slideShow();
 }
 
 function scrollTopListerner() {
-    let header = document.getElementsByTagName('header')[0];
-    let main = document.getElementsByTagName('main')[0];
-    if (document.documentElement.scrollTop > 430) {
-        header.style.position = "fixed";
-        header.style.background = "rgba(243, 237, 237, 0.719)";
-    } else {
-        header.style.position = "absolute";
-        header.style.background = "";
-    }
+    isToFixHeader();
 }
 
 function showMoviesBySortListener(event) {

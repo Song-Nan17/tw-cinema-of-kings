@@ -1,7 +1,19 @@
-header {
+.header-unfixed {
   position: absolute;
-  background-color: rgba(0, 0, 0, 0);
+  background: none;
+  box-shadow : none;
 }
+.header-unfixed #search-box {
+  background: rgba(225, 225, 225, 0.3);
+  border: none;
+}
+
+.header-unfixed #search-box::-webkit-input-placeholder {
+  color: white;
+  letter-spacing: 1px;
+}
+
+
 main {
   margin: 0 auto;
   /* width: 100%; */
