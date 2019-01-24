@@ -23,7 +23,7 @@ function playImage(slideShowList, imgNumber) {
 function getMovieDivs(displayMovies) {
   return displayMovies.map(movie =>
       `<div>
-    <img class="moviePoster" src=${movie.image} onerror="showErrorImg(event)" />
+    <img class="moviePoster" src=${movie.image} onerror="showErrorImg(this)" />
     <p class="movieName">${movie.title}</p>
     <p class="movieScore">${movie.rating}</p>
     </div>`);
