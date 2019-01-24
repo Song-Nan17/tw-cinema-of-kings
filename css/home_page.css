@@ -6,6 +6,7 @@
 .header-unfixed #search-box {
   background: rgba(225, 225, 225, 0.3);
   border: none;
+  color: white;
 }
 
 .header-unfixed #search-box::-webkit-input-placeholder {

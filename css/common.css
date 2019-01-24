@@ -28,6 +28,7 @@ margin: 0 auto;
   margin: 15px 0;
   text-align: center;
 }
+
 .logo {
   height: 40px;
   line-height: 40px;
@@ -35,25 +36,24 @@ margin: 0 auto;
   font-family: Helvetica,Arial,sans-serif;
   font-size: 40px;
   font-weight: bold;
-  color: rgb(92, 141, 179);
+  color: rgb(57, 146, 214);
   text-decoration: none;
   text-align: center;
+  text-shadow: 1px 1px 0px #212121;
 }
+
 #search-box {
   font-size: 15px;
   float: left;
   margin: 17px 0 17px 100px;
   background: inherit;
-  color: white;
   width: 40%;
   text-align: left;
   height: 36px;
   padding: 10px;
   outline: none;
-  /* border-bottom-style: none; */
-  border: solid 1px rgb(92, 141, 179);
+  border: solid 1px rgb(57, 146, 214);
   border-radius: 20px;
-  /* box-shadow: 0 1px 0 rgb(175, 175, 175) ; */
   -webkit-appearance: none;
 }
 
