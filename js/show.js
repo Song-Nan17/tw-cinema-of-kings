@@ -9,7 +9,7 @@ function slideShow() {
 
 function playImage(slideShowList, imgNumber) {
   let listLength = slideShowList.length;
-  console.log(imgNumber)
+  // console.log(imgNumber)
   imgNumber = imgNumber % listLength;
   for (let i = 0; i < listLength; i++) {
     slideShowList[i].className = "";
@@ -33,10 +33,14 @@ function replaceImgSrc(event) {
   event.src = "https://img3.doubanio.com/view/movie_poster_cover/spst/public/p692813374.jpg";
 }
 
-function changeClickedSortColor(event) {
-  const liTags = document.getElementsByTagName('li');
+function changeClickedLiClassName(event) {
+  const liTags = document.getElementById('movieSortTable').children;
   for (i = 0; i < liTags.length; i++) {
-    liTags[i].style.color = 'black';
+    liTags[i].className = '';
   }
-  event.target.style.color = '#27a';
+  // event.target.className = '#27a';
+  event.target.className = 'sort-clicked';
+  console.log(liTags);
+
+  // console.log(event.target.className)
 }
