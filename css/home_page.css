@@ -71,3 +71,22 @@ main {
   cursor: pointer;
   padding-right: 75px;
 }
+
+#page_button {
+  text-align:center;
+}
+
+#now_page {
+  display: inline-block;
+  width: 50px;
+}
+
+.change_page{
+  background-color: #e7e7e7;
+  color: black;
+  border: none;
+  padding: 5px 5px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 8px;
+}
