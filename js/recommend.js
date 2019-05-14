@@ -17,14 +17,15 @@ function generateRandoms(count, randomsLength) {
 function generateSameMovies(movie) {
     const url = `http://localhost:8080/movies?size=268`;
     request('get', url, (data) => {
-        const sameMovies = getSameMovies(movie,data.content);
+        const sameMovies = getSameMovies(movie, data.content);
         showSameMovies(sameMovies);
     })
 }
 
-function getSameMovies(selectedMovie,movies) {
+function getSameMovies(selectedMovie, movies) {
     const genresName = getGenres(selectedMovie);
-    const sameMovies = movies.filter(movie => getGenres(movie).some(genre => genresName.includes(genre)));
+    const sameMovies = movies.filter(movie => getGenres(movie).some(genre => genresName.includes(genre))
+        && movie.id !== selectedMovie.id);
     return sameMovies;
 }
 
@@ -39,9 +40,9 @@ function showHighScoreMovies() {
     // const randoms = generateRandoms(highScoreMovies.length, 12);
     // const randomMovies = randoms.map(random => highScoreMovies[random]);
     let elementId = "recommend";
-    let url="http://localhost:8080/movies/in_theater";
+    let url = "http://localhost:8080/movies/in_theater";
     request('get', url, (data) => {
-        ShowMovies13(data,elementId);
+        ShowMovies13(data, elementId);
     });
     // const movieDivs = getMovieDivs(randomMovies);
     // document.getElementById('recommend').innerHTML = `
