@@ -25,7 +25,7 @@ function getMovieDivs(displayMovies) {
       `<div>
     <img class="moviePoster" src=${movie.image} onerror="showErrorImg(this)" />
     <p class="movieName">${movie.title}</p>
-    <p class="movieScore">${movie.rating}</p>
+    <p class="movieScore">${movie.rate}</p>
     </div>`);
 }
 

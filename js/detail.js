@@ -9,7 +9,7 @@ function showMovieDetails() {
     request('get', url, (data) => {
         generateDetails(data);
         generateComments(data);
-        generateSameMovies(data);
+        //generateSameMovies(data);
     })
 }
 
@@ -36,7 +36,7 @@ function generateFilmMaker(cast) {
     return `<li>
               <div class="person">
                 <img src=${cast.image} />
-                <span>${cast.name}</span>
+                <p>${cast.name}</p>
               </div>
             </li>`;
 }
@@ -78,7 +78,7 @@ function showRatingDetails(movie) {
 }
 
 function showComments(data, movie) {
-    const commentsList = displayComments(data.slice(0, 5));
+    const commentsList = displayComments(data.slice(0, 8));
     document.getElementById('comments').innerHTML =
         `<p>${movie.title}的短评</p>
      ${commentsList.join('<hr>')}`;

@@ -19,9 +19,9 @@ main {
   /* width: 100%; */
 }
 .slide-show {
-  height: 420px;
+  height: 600px;
   width: 100%;
-  margin: 0;
+  margin-top: -80px;
 }
 .slide-show-list {
   width: 100%;
@@ -41,19 +41,19 @@ main {
 
 #movieSortTable {
   list-style: none;
-  margin: 0 auto;
+  margin: 0 70px 0 10px;
   padding: 0;
   /*background: rgba(144, 167, 185, 0.2);*/
 }
 
 #movieSortTable li {
   display: inline-block;
-  margin: 2px 15px;
-  padding-bottom: 5px;
+  margin: 2px 17px;
+  padding-bottom: 3px;
   color: black;
   cursor: pointer;
   text-align: center;
-  width: 48px;
+  width: 55px;
 }
 
 #movieSortTable li:hover {

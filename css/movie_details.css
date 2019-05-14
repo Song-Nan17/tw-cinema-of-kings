@@ -1,18 +1,24 @@
+.movieDetail {
+  width: 65%;
+}
+
 
 #name {
-  margin: 0 0 20px 0;
+  margin: 10px 0 40px 0;
 }
+
 #introduction {
   overflow: hidden;
+  margin: 0 40px;
 }
 #poster {
   float: left;
-  width: 150px;
+  width: 180px;
 }
 #detail {
   float: left;
   margin: 0 150px;
-  width: 400px;
+  width: 230px;
   font-size: 16px;
   line-height: 30px;
 }
@@ -36,7 +42,7 @@
 
 #filmMaker {
   margin: 10px 0;
-  width: 130px;
+  width: 360px;
   float: left;
 }
 
@@ -50,14 +56,25 @@
 
 .person {
   float: left;
-  width: 60px;
+  width: 100px;
+  margin: 5px 10px;
 }
 
 .person img{
-  width: 50px;
+  width: 100px;
+}
+
+.person p {
+  margin: 0 25px;
+}
+
+#content {
+  margin: 70px 40px;
+  padding-right: 60px;
 }
 
 #content div {
+  width: 1100px;
   font-size: 16px;
   font-family: Helvetica,Arial,sans-serif;
   line-height: 25px;
@@ -65,10 +82,17 @@
 
 #comments {
   font-family: Helvetica,Arial,sans-serif;
+  margin: 0 40px 70px 40px;
+  width: 1100px;
 }
 #comments div p {
   margin: 8px 0;
   font-size: smaller;
+  width: 1100px;
+}
+
+#recommend {
+  margin: 0 40px;
 }
 .author {
   color: #37a;
