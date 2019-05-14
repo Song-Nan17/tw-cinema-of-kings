@@ -1,6 +1,8 @@
 function onloadPageListener() {
-    storageInit(data);
+    // storageInit(data);
+
     showMovieSortTable();
+    ShowMoviesBySort13("全部");
     showHighScoreMovies();
     isToFixHeader();
     slideShow();

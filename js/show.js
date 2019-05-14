@@ -148,7 +148,6 @@ function showSameMovies(movies) {
     const randomMovies = randoms.map(random => movies[random]);
     movieDivs = getMovieDivs(randomMovies);
   }
-  document.getElementById('recommend').innerHTML = `
-  <p>同类电影推荐</p>
-  ${movieDivs.join('\n')}`;
+  event.target.className = 'sort-clicked';
+  // console.log(liTags);
 }

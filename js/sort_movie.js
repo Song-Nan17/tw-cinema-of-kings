@@ -1,37 +1,45 @@
+
+function showMovieSortTable() {
+    const url = `http://localhost:8080/genres`;
+    request('get', url, (data) => {
+        ShowGenres(data);
+    });
+    // let movies = getMoviesFromStorage();
+    // let sortMovies = getMoviesBySort('全部', movies);
+    // storageSortMovies(sortMovies);
+    // showMoviesBySort(sortMovies, 12);
+}
+
+function ShowGenres(data) {
+    let genres = ['<li class="sort-clicked">全部</li>'];
+    for (let i = 0; i < data.length; i++) {
+        genres.push(`<li class="sort-clicked">${data[i].name}</li>`);
+    }
+    document.getElementById('movieSortTable').innerHTML = genres.join("\n");
+}
+
 function getSortArr() {
     const movies = getMoviesFromStorage();
     const movieSorts = movies.reduce((sortArr, movie) => sortArr = sortArr.concat(movie.genres), ['全部']);
     return movieSorts.filter((sort, index, sortArr) => sortArr.indexOf(sort) === index);
 }
 
-function showMovieSortTable() {
-    let sortArr = getSortArr();
-    sortArr.unshift('全部');
-    let liTags = sortArr.map(sortName => `<li>${sortName}</li>`);
-    liTags[0] = `<li class="sort-clicked">${sortArr[0]}</li>`
-    document.getElementById('movieSortTable').innerHTML = liTags.join('\n');
-    let movies = getMoviesFromStorage();
-    let sortMovies = getMoviesBySort('全部', movies);
-    storageSortMovies(sortMovies);
-    showMoviesBySort(sortMovies, 12);
-}
-
-
 function getSortName(event) {
+    let name = "";
     if (event.target.tagName.toLowerCase() === 'li') {
         changeClickedLiClassName(event);
-        storageSortName(event.target.innerHTML);
-        return event.target.innerHTML;
+        // storageSortName(event.target.innerHTML);
+        name+= event.target.innerHTML;
     }
-    return
+    return name;
 }
 
-function getMoviesBySort(sortName, movies) {
-    if (sortName !== '全部') {
-        movies = movies.filter(movie => movie.genres.includes(sortName));
-    }
-    return movies;
-}
+// function getMoviesBySort(sortName, movies) {
+//     if (sortName !== '全部') {
+//         movies = movies.filter(movie => movie.genres.includes(sortName));
+//     }
+//     return movies;
+// }
 
 function generatePageButtons(number) {
     let numbers = [];
@@ -61,11 +69,47 @@ function showSearchSortTable() {
 
 function toShowMoviesBySort(event) {
     const sortName = getSortName(event);
-    const movies = getMoviesFromStorage();
-    const sortMovies = getMoviesBySort(sortName, movies);
-    storageSortMovies(sortMovies);
-    showMoviesBySort(sortMovies, 12);
+    if(sortName.length>1) {
+        ShowMoviesBySort13(sortName,"sortMovies");
+    }
+    // const movies = getMoviesFromStorage();
+    // const sortMovies = getMoviesBySort(sortName, movies);
+    // storageSortMovies(sortMovies);
+    // showMoviesBySort(sortMovies, 12);
 }
+
+function ShowMoviesBySort13(sortName) {
+    let url = "http://localhost:8080/movies?page=0&size=12";
+    if (sortName !== '全部') {
+        url += `&genre=${sortName}&title=""`;
+    }
+    request('get', url, (data) => {
+        ShowMovies13(data,"sortMovies");
+    });
+}
+
+function ShowMovies13(data, elementId) {
+    let movies = [];
+    for (let i = 0; i < data.content.length; i++) {
+        let movie = data.content[i];
+        let tag = `<div  onclick="toMovieDetailsPage(event)">
+        <img class="moviePoster" id="${movie.id}" src=${movie.image} onerror="showErrorImg(this)" />
+        <p class="movieName">${movie.title}</p>
+        <p class="movieScore">${movie.rate}</p>
+        </div>`
+        movies.push(tag);
+    }
+    let divs = movies.join("\n");
+    if(elementId=="recommend") {
+        divs="<p>高分电影推荐</p>"+divs;   
+    }
+    document.getElementById(elementId).innerHTML = divs;
+    
+
+    //         movies = movies.filter(movie => movie.genres.includes(sortName));
+    //     }
+}    //     return movies;
+
 
 function showMoviesBySearchSort(event) {
     const sortName = getSortName(event);

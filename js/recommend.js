@@ -27,13 +27,18 @@ function getSameMovies(selectedMovie) {
 }
 
 function showHighScoreMovies() {
-    const highScoreMovies = getMoviesScoreAbove(8.8)
-    const randoms = generateRandoms(highScoreMovies.length, 12);
-    const randomMovies = randoms.map(random => highScoreMovies[random]);
-    const movieDivs = getMovieDivs(randomMovies);
-    document.getElementById('recommend').innerHTML = `
-      <p>高分电影推荐</p>
-      ${movieDivs.join('\n')}`;
+    // const highScoreMovies = getMoviesScoreAbove(8.8)
+    // const randoms = generateRandoms(highScoreMovies.length, 12);
+    // const randomMovies = randoms.map(random => highScoreMovies[random]);
+    let elementId = "recommend";
+    let url="http://localhost:8080/movies/in_theater";
+    request('get', url, (data) => {
+        ShowMovies13(data,elementId);
+    });
+    // const movieDivs = getMovieDivs(randomMovies);
+    // document.getElementById('recommend').innerHTML = `
+    //   <p>高分电影推荐</p>
+    //   ${movieDivs.join('\n')}`;
 }
 
 function showSameMovies(movies) {
