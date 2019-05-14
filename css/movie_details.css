@@ -34,9 +34,11 @@
   color: grey;
 }
 
-/*#filmMaker {
-  display: inline-block;
-}*/
+#filmMaker {
+  margin: 10px 0;
+  width: 130px;
+  float: left;
+}
 
 #filmMaker li {
   list-style: none;
@@ -48,7 +50,7 @@
 
 .person {
   float: left;
-  width: 50px;
+  width: 60px;
 }
 
 .person img{
