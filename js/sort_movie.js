@@ -13,7 +13,7 @@ function showMovieSortTable() {
 function ShowGenres(data) {
     let genres = ['<li class="sort-clicked">全部</li>'];
     for (let i = 0; i < data.length; i++) {
-        genres.push(`<li class="sort-clicked">${data[i].name}</li>`);
+        genres.push(`<li >${data[i].name}</li>`);
     }
     document.getElementById('movieSortTable').innerHTML = genres.join("\n");
 }
