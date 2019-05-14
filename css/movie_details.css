@@ -42,8 +42,14 @@
   width: 50px;
 }
 
+#content div {
+  font-size: 16px;
+  font-family: Helvetica,Arial,sans-serif;
+  line-height: 25px;
+}
+
 #comments {
-  font-size: Helvetica,Arial,sans-serif;
+  font-family: Helvetica,Arial,sans-serif;
 }
 #comments div p {
   margin: 8px 0;
