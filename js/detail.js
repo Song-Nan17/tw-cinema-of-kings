@@ -20,7 +20,6 @@ function generateDetails(movie) {
 
 function generateName(movie) {
     let nameString;
-    console.log(movie);
     if (movie.title != movie.originalTitle) {
         nameString = `${movie.title} — ${movie.originalTitle}`;
     } else {
