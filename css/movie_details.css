@@ -34,11 +34,24 @@
   color: grey;
 }
 
-#filmMaker li {
+/*#filmMaker {
+  display: inline-block;
+}*/
 
+#filmMaker li {
+  list-style: none;
+}
+
+#filmMaker span {
+  font-size: smaller;
 }
 
 .person {
+  float: left;
+  width: 50px;
+}
+
+.person img{
   width: 50px;
 }
 

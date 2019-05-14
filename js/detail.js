@@ -28,6 +28,19 @@ function generateName(movie) {
     document.getElementById('name').innerHTML = nameString;
 }
 
+function generateFilmMakers(movie) {
+    return movie.casts.map(cast => generateFilmMaker(cast)).join('\n');
+}
+
+function generateFilmMaker(cast) {
+    return `<li>
+              <div class="person">
+                <img src=${cast.image} />
+                <span>${cast.name}</span>
+              </div>
+            </li>`;
+}
+
 function generateBasic(movie) {
     document.getElementById('poster').src = movie.image;
     document.getElementById('directors').innerHTML = `导演：${movie.directors.map(director => director.name).join("，")}`;
@@ -37,6 +50,7 @@ function generateBasic(movie) {
     document.getElementById('more').href = movie.alt;
     document.getElementById('content').innerHTML = `<p>剧情简介:</p>
                                                              <div>${movie.introduction}</div>`;
+    document.getElementById('filmMaker').innerHTML = generateFilmMakers(movie);
     showRatingDetails(movie);
 }
 
