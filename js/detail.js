@@ -30,6 +30,7 @@ function generateBasic(movie) {
     document.getElementById('genres').innerHTML = `类别：${movie.genres.join(',')}`;
     document.getElementById('year').innerHTML = `上映时间：${movie.year}`;
     document.getElementById('more').href = movie.alt;
+    showRatingDetails(movie);
 }
 
 function generateComments(movie) {
@@ -38,14 +39,13 @@ function generateComments(movie) {
     request('get', url, (data) => {
         showComments(data, movie);
         //showOther(data);
-        //showRatingDetails(data);
     })
 }
 
 function generateStar(value) {
     let stars = ['☆', '☆', '☆', '☆', '☆'];
     return stars.map((star, index, arr) => {
-        if (index < value) {
+        if (index < value-1) {
             return '★';
         }
         return star;
@@ -64,14 +64,14 @@ function showOther(data) {
     document.getElementById('durations').innerHTML = `片长：${data.subject.durations[0]}`;
 }
 
-function showRatingDetails(data) {
+function showRatingDetails(movie) {
     document.getElementById('aboutRating').innerHTML =
-        `<p id='rating'>${data.subject.rating.average}</p>
-    <p>${generateStar(1).join('')} <span>${data.subject.rating.details[1]}</span></p>
-    <p>${generateStar(2).join('')} <span>${data.subject.rating.details[2]}</span></p>
-    <p>${generateStar(3).join('')} <span>${data.subject.rating.details[3]}</span></p>
-    <p>${generateStar(4).join('')} <span>${data.subject.rating.details[4]}</span></p>
-    <p>${generateStar(5).join('')} <span>${data.subject.rating.details[5]}</span></p>`
+        `<p id='rating'>${movie.rating}</p>
+    <p>${generateStar(movie.rating/2).join('')}</p>`
+    // <p>${generateStar(2).join('')} <span>${data.subject.rating.details[2]}</span></p>
+    // <p>${generateStar(3).join('')} <span>${data.subject.rating.details[3]}</span></p>
+    // <p>${generateStar(4).join('')} <span>${data.subject.rating.details[4]}</span></p>
+    // <p>${generateStar(5).join('')} <span>${data.subject.rating.details[5]}</span></p>`
 }
 
 function showComments(data, movie) {
