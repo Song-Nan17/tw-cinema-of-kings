@@ -6,6 +6,7 @@ function getSortArr() {
 
 function showMovieSortTable() {
     let sortArr = getSortArr();
+    sortArr.unshift('全部');
     let liTags = sortArr.map(sortName => `<li>${sortName}</li>`);
     liTags[0] = `<li class="sort-clicked">${sortArr[0]}</li>`
     document.getElementById('movieSortTable').innerHTML = liTags.join('\n');
