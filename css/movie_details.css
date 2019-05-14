@@ -7,7 +7,7 @@
 }
 #poster {
   float: left;
-  width: 150px; 
+  width: 150px;
 }
 #detail {
   float: left;
@@ -16,17 +16,32 @@
   font-size: 16px;
   line-height: 30px;
 }
-#aboutRating p {
+#aboutRating {
+  margin: 10px 0;
+}
+
+#aboutRating span {
+  font-size: 30px;
   color: orange;
 }
 #aboutRating #rating{
   font-size: 35px;
   font-weight: lighter;
   color: black;
+
 }
 #aboutRating p span {
   color: grey;
 }
+
+#filmMaker li {
+
+}
+
+.person {
+  width: 50px;
+}
+
 #comments {
   font-size: Helvetica,Arial,sans-serif;
 }

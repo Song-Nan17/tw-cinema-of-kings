@@ -43,12 +43,12 @@ main {
   list-style: none;
   margin: 0 auto;
   padding: 0;
-  background: rgba(144, 167, 185, 0.2);
+  /*background: rgba(144, 167, 185, 0.2);*/
 }
 
 #movieSortTable li {
   display: inline-block;
-  margin: 10px 15px;
+  margin: 2px 15px;
   padding-bottom: 5px;
   color: black;
   cursor: pointer;
