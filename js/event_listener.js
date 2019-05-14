@@ -2,7 +2,7 @@ function onloadPageListener() {
     // storageInit(data);
 
     showMovieSortTable();
-    ShowMoviesBySort13("全部");
+    ShowMoviesBySort13("全部",0);
     showHighScoreMovies();
     isToFixHeader();
     slideShow();
@@ -33,8 +33,10 @@ function showMoreMoviesListener() {
 }
 
 function onloadShowResult() {
-    showSearchSortTable();
-    getAndShowSearchResult();
+    // showSearchSortTable();
+    let search =getSearchContentFromUrl();
+    document.getElementById('search-box').value=search;
+    getAndShowSearchResult(search,0);
 }
 
 function onloadShowMovie() {
@@ -51,4 +53,25 @@ function toSearchPage(event) {
 
 function toHomePage() {
     window.location = `index.html`;
+}
+
+function lastPage() {
+    
+    let page = document.getElementById("now_page").innerText;
+    let pageNum = parseInt(page)-1;
+    if(pageNum>0) {
+        let genre = document.getElementsByClassName("sort-clicked")[0].innerHTML;
+        document.getElementById("now_page").innerText=pageNum;
+        ShowMoviesBySort13(genre,pageNum);
+    }
+    
+}
+
+function nextPage() {
+    
+    let page = document.getElementById("now_page").innerText;
+    let pageNum = parseInt(page)+1;
+    let genre = document.getElementsByClassName("sort-clicked")[0].innerHTML;
+    document.getElementById("now_page").innerText=pageNum;
+    ShowMoviesBySort13(genre,pageNum);
 }

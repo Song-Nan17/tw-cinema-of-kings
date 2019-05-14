@@ -70,7 +70,8 @@ function showSearchSortTable() {
 function toShowMoviesBySort(event) {
     const sortName = getSortName(event);
     if(sortName.length>1) {
-        ShowMoviesBySort13(sortName,"sortMovies");
+        document.getElementById("now_page").innerText=1;
+        ShowMoviesBySort13(sortName,0);
     }
     // const movies = getMoviesFromStorage();
     // const sortMovies = getMoviesBySort(sortName, movies);
@@ -78,8 +79,8 @@ function toShowMoviesBySort(event) {
     // showMoviesBySort(sortMovies, 12);
 }
 
-function ShowMoviesBySort13(sortName) {
-    let url = "http://localhost:8080/movies?page=0&size=12";
+function ShowMoviesBySort13(sortName,page) {
+    let url = `http://localhost:8080/movies?page=${page}&size=12`;
     if (sortName !== '全部') {
         url += `&genre=${sortName}&title=""`;
     }
@@ -101,7 +102,11 @@ function ShowMovies13(data, elementId) {
     }
     let divs = movies.join("\n");
     if(elementId=="recommend") {
-        divs="<p>高分电影推荐</p>"+divs;   
+        divs="<p>热映影片</p>"+divs;   
+    }else{
+        let page = document.getElementById("now_page").innerText;
+        divs+=
+        `<p id="page_button"><button class="change_page" onclick="lastPage()">上一页</button><span id="now_page">${page}</span><button class="change_page" onclick="nextPage()">下一页</button></p>`
     }
     document.getElementById(elementId).innerHTML = divs;
     
@@ -130,4 +135,6 @@ function showMoreMovies() {
     const sortMovies = getSortMoviesInStorage();
     showMoviesBySort(sortMovies);
 }
+
+
 
