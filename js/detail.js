@@ -33,11 +33,12 @@ function generateBasic(movie) {
 }
 
 function generateComments(movie) {
-    const url = `https://api.douban.com/v2/movie/subject/${movie.id}/comments?apikey=0b2bdeda43b5688921839c8ecb20399b&count=5&client=&udid=`;
+    const url = `http://localhost:8080/movies/${movie.id}/comments`;
+        //`https://api.douban.com/v2/movie/subject/${movie.id}/comments?apikey=0b2bdeda43b5688921839c8ecb20399b&count=5&client=&udid=`;
     request('get', url, (data) => {
-        showComments(data);
-        showOther(data);
-        showRatingDetails(data);
+        showComments(data, movie);
+        //showOther(data);
+        //showRatingDetails(data);
     })
 }
 
@@ -73,10 +74,10 @@ function showRatingDetails(data) {
     <p>${generateStar(5).join('')} <span>${data.subject.rating.details[5]}</span></p>`
 }
 
-function showComments(data) {
-    const commentsList = displayComments(data.comments);
+function showComments(data, movie) {
+    const commentsList = displayComments(data.slice(0,5));
     document.getElementById('comments').innerHTML =
-        `<p>${data.subject.title}的短评</p>
+        `<p>${movie.title}的短评</p>
      ${commentsList.join('<hr>')}`;
 }
 
@@ -84,9 +85,9 @@ function displayComments(comments) {
     return comments.map(comment =>
         `<div>   
             <p class='aboutAuthor'>
-                <span class='author'>${comment.author.name}</span>  
-                <span class='star'>${generateStar(comment.rating.value).join('')}</span>
-                ${comment.created_at} 
+                <span class='author'>${comment.author}</span>  
+                <span class='star'>${generateStar(comment.rate).join('')}</span>
+                ${comment.time} 
             </p>
             <p class='comment'>${comment.content}</p>
         </div>`)
