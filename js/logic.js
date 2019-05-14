@@ -7,9 +7,7 @@ function formatGenresToArray(data) {
 
 function getMovieId(event) {
     if (event.target.tagName.toLowerCase() === 'img') {
-        const movies = getMoviesFromStorage();
-        const movie = movies.find(movie => movie.image === event.target.src);
-        return movie.id;
+        return event.target.id;
     }
 }
 
