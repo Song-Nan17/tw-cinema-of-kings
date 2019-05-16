@@ -126,25 +126,24 @@ footer .fright a {
   text-align: center;
   display: inline-block;
   width: 170px;
-  /* background: red; */
   margin: 10px 22px;
   box-shadow: 1px 1px 1px rgb(175, 175, 175) ;
 }
 
-.page {
-  text-align: center;
-  margin-top: 30px;
-}
+/*.page {*/
+  /*text-align: center;*/
+  /*margin-top: 30px;*/
+/*}*/
 
-.page-button {
-  min-width: 33px;
-  height: 28px;
-  color: #333;
-  line-height: 27px;
-  font-size: 14px;
-  margin: 0 5px;
-  vertical-align: middle;
-  border-radius: 2px;
-  border: 1px solid #e3e3e3;
-  background: #fff;
-}
+/*.page-button {*/
+  /*min-width: 33px;*/
+  /*height: 28px;*/
+  /*color: #333;*/
+  /*line-height: 27px;*/
+  /*font-size: 14px;*/
+  /*margin: 0 5px;*/
+  /*vertical-align: middle;*/
+  /*border-radius: 2px;*/
+  /*border: 1px solid #e3e3e3;*/
+  /*background: #fff;*/
+/*}*/

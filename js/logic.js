@@ -1,10 +1,3 @@
-function formatGenresToArray(data) {
-    return data.map(ele => {
-        ele.genres = ele.genres.split(',');
-        return ele;
-    })
-}
-
 function getMovieId(event) {
     if (event.target.tagName.toLowerCase() === 'img') {
         return event.target.id;
@@ -25,7 +18,7 @@ function isToMovieSearchPage(searchContent) {
     window.location.href = searchUrl;
 }
 
-function isToFixHeader() {
+function fixHeader() {
     let header = document.getElementsByTagName('header')[0];
     if (document.documentElement.scrollTop > 430) {
         header.className="";

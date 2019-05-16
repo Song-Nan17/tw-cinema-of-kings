@@ -13,15 +13,16 @@
   <script src="../js/data/movies.js"></script>
   <script src="../js/event_listener.js"></script>
   <script src="../js/storage.js"></script>
-  <script src="../js/detail.js"></script>
+  <script src="../js/detail_page.js"></script>
   <script src="../js/recommend.js"></script>
   <script src="../js/search.js"></script>
   <script src="../js/sort_movie.js"></script>
   <script src="../js/logic.js"></script>
-  <script src="../js/show.js"></script>
+  <script src="../js/slide_show.js"></script>
+  <script src="../js/movie_in_theater.js"></script>
 </head>
 
-<body onload="onloadPageListener()" onscroll="scrollTopListerner()">
+<body onload="onloadPageListener()" onscroll="scrollTopListener()">
   <header>
     <div class="header-container">
       <div class="tw-logo">
@@ -56,7 +57,7 @@
       </ul>
     </div>
     <div id="sortMovies" class="movies-list">
-        <p id="page_button"><button onclick="lastPage()">上一页</button><a id="now_page">1</a><button onclick="nextPage()">下一页</button></p>
+        <p id="page_button"><button onclick="lastPageListener()">上一页</button><a id="now_page">1</a><button onclick="nextPageListener()">下一页</button></p>
     </div>
     <div id="recommend" class="movies-list" onclick="toMovieDetailsPage(event)">
     </div>
